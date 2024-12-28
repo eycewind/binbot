@@ -1,0 +1,38 @@
+2024-12-27 23:59:39.536557 | Signal: Buy, Prediction: -0.4602, Previous Close: 94590.61, Predicted Value Change: 94155.32
+2024-12-28 00:59:29.534320 |Prediction: -0.3071, Previous Close: 94633.11, Predicted Value Change: 94342.46
+2024-12-28 01:04:30.034736 |Prediction: -0.0046, Previous Close: 94677.94, Predicted Value Change: 94673.58
+2024-12-28 01:09:30.580146 |Prediction: -0.1346, Previous Close: 94529.25, Predicted Value Change: 94402.04
+2024-12-28 01:14:31.193604 |Prediction: 0.0772, Previous Close: 94568.15, Predicted Value Change: 94641.14
+2024-12-28 01:19:31.705231 |Prediction: -0.0620, Previous Close: 94328.02, Predicted Value Change: 94269.50
+2024-12-28 01:24:32.234282 |Prediction: 0.0290, Previous Close: 94451.37, Predicted Value Change: 94478.80
+2024-12-28 01:29:32.812601 |Prediction: -0.1825, Previous Close: 94478.32, Predicted Value Change: 94305.86
+2024-12-28 01:34:33.656148 |Prediction: -0.2465, Previous Close: 94583.99, Predicted Value Change: 94350.80
+2024-12-28 01:39:34.072223 |Prediction: -0.2240, Previous Close: 94675.57, Predicted Value Change: 94463.48
+2024-12-28 01:44:34.493948 |Prediction: 0.2173, Previous Close: 94678.77, Predicted Value Change: 94884.51
+2024-12-28 01:49:35.088300 |Prediction: 0.1510, Previous Close: 94361.42, Predicted Value Change: 94503.94
+2024-12-28 01:54:35.540705 |Prediction: 0.0509, Previous Close: 94415.98, Predicted Value Change: 94464.01
+2024-12-28 00:59:29.534506 | Signal: Hold, Prediction: -0.3071, Previous Close: 94415.98, Predicted Value Change: 94126.00
+2024-12-28 01:59:35.993282 |Prediction: -0.0455, Previous Close: 94502.01, Predicted Value Change: 94459.04
+2024-12-28 01:04:30.035061 | Signal: Hold, Prediction: -0.0046, Previous Close: 94502.01, Predicted Value Change: 94497.66
+2024-12-28 03:24:35.573583 |Prediction: -0.1027, Previous Close: 94644.01, Predicted Value Change: 94546.84
+2024-12-28 01:09:30.580525 | Signal: Hold, Prediction: -0.1346, Previous Close: 94644.01, Predicted Value Change: 94516.64
+2024-12-28 03:29:36.232517 |Prediction: 0.0563, Previous Close: 94591.79, Predicted Value Change: 94645.08
+2024-12-28 01:14:31.193986 | Signal: Hold, Prediction: 0.0772, Previous Close: 94591.79, Predicted Value Change: 94664.80
+2024-12-28 03:34:36.787490 |Prediction: -0.0814, Previous Close: 94482.80, Predicted Value Change: 94405.88
+2024-12-28 01:19:31.705397 | Signal: Hold, Prediction: -0.0620, Previous Close: 94482.80, Predicted Value Change: 94424.19
+2024-12-28 03:39:37.264574 |Prediction: 0.0273, Previous Close: 94608.31, Predicted Value Change: 94634.16
+2024-12-28 01:24:32.234457 | Signal: Hold, Prediction: 0.0290, Previous Close: 94608.31, Predicted Value Change: 94635.79
+2024-12-28 03:44:37.681673 |Prediction: -0.0521, Previous Close: 94555.44, Predicted Value Change: 94506.20
+2024-12-28 01:29:32.812731 | Signal: Hold, Prediction: -0.1825, Previous Close: 94555.44, Predicted Value Change: 94382.84
+2024-12-28 03:49:38.191768 |Prediction: 0.0443, Previous Close: 94554.07, Predicted Value Change: 94595.92
+2024-12-28 01:34:33.656418 | Signal: Hold, Prediction: -0.2465, Previous Close: 94554.07, Predicted Value Change: 94320.95
+2024-12-28 03:54:38.778140 |Prediction: 0.0416, Previous Close: 94526.08, Predicted Value Change: 94565.41
+2024-12-28 01:39:34.072597 | Signal: Hold, Prediction: -0.2240, Previous Close: 94526.08, Predicted Value Change: 94314.32
+2024-12-28 03:59:39.208704 |Prediction: 0.0777, Previous Close: 94396.00, Predicted Value Change: 94469.35
+2024-12-28 01:44:34.494264 | Signal: Hold, Prediction: 0.2173, Previous Close: 94396.00, Predicted Value Change: 94601.13
+2024-12-28 04:04:39.631410 |Prediction: 0.1977, Previous Close: 94437.75, Predicted Value Change: 94624.43
+2024-12-28 01:49:35.088598 | Signal: Hold, Prediction: 0.1510, Previous Close: 94437.75, Predicted Value Change: 94580.38
+2024-12-28 04:09:40.217497 |Prediction: 0.2626, Previous Close: 94435.74, Predicted Value Change: 94683.75
+2024-12-28 01:54:35.540951 | Signal: Hold, Prediction: 0.0509, Previous Close: 94435.74, Predicted Value Change: 94483.78
+2024-12-28 04:14:40.848702 |Prediction: 0.0765, Previous Close: 94429.80, Predicted Value Change: 94502.04
+2024-12-28 01:59:35.993526 | Signal: Hold, Prediction: -0.0455, Previous Close: 94429.80, Predicted Value Change: 94386.86
