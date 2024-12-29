@@ -1,4 +1,5 @@
 import pandas as pd
+import numpy as np
 
 class BatchFeatures:
     def calculate_sma(self, df):
@@ -81,3 +82,56 @@ class BatchFeatures:
         df['candle_body'] = df['close'] - df['open']
         df['upper_wick'] = df['high'] - df[['close', 'open']].max(axis=1)
         df['lower_wick'] = df[['close', 'open']].min(axis=1) - df['low']
+
+    def calculate_stochastic_oscillator(self, df, window=14):
+        """
+        Calculate the Stochastic Oscillator.
+        """
+        lowest_low = df['low'].rolling(window=window).min()
+        highest_high = df['high'].rolling(window=window).max()
+        df['stochastic_oscillator'] = ((df['close'] - lowest_low) / (highest_high - lowest_low)) * 100
+
+    def calculate_williams_r(self, df, window=14):
+        """
+        Calculate Williams %R.
+        """
+        highest_high = df['high'].rolling(window=window).max()
+        lowest_low = df['low'].rolling(window=window).min()
+        df['williams_r'] = ((highest_high - df['close']) / (highest_high - lowest_low)) * -100
+
+    def calculate_moving_average_crossover(self, df, short_window=10, long_window=50):
+        """
+        Calculate Moving Average Crossover.
+        """
+        df['sma_short'] = df['close'].rolling(window=short_window).mean()
+        df['sma_long'] = df['close'].rolling(window=long_window).mean()
+        df['ma_crossover'] = df['sma_short'] - df['sma_long']
+
+    def calculate_historical_volatility(self, df, window=14):
+        """
+        Calculate Historical Volatility.
+        """
+        df['log_return'] = (df['close'] / df['close'].shift(1)).apply(lambda x: np.log(x))
+        df['historical_volatility'] = df['log_return'].rolling(window=window).std()
+
+    def calculate_on_balance_volume(self, df):
+        """
+        Calculate On-Balance Volume (OBV).
+        """
+        df['price_change'] = df['close'].diff()
+        df['obv'] = (df['price_change'].apply(lambda x: 1 if x > 0 else (-1 if x < 0 else 0)) * df['volume']).cumsum()
+
+    def calculate_money_flow_index(self, df, window=14):
+        """
+        Calculate Money Flow Index (MFI).
+        """
+        typical_price = (df['high'] + df['low'] + df['close']) / 3
+        money_flow = typical_price * df['volume']
+        positive_flow = money_flow.where(typical_price > typical_price.shift(1), 0)
+        negative_flow = money_flow.where(typical_price < typical_price.shift(1), 0)
+
+        positive_mf_sum = positive_flow.rolling(window=window).sum()
+        negative_mf_sum = negative_flow.rolling(window=window).sum()
+        mfi = 100 - (100 / (1 + (positive_mf_sum / negative_mf_sum)))
+        df['mfi'] = mfi
+

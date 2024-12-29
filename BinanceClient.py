@@ -177,7 +177,7 @@ class BinanceClient:
         :return: The latest candle data as a DataFrame.
         """
         try:
-            candles = self.client.get_klines(symbol=pair, interval=Client.KLINE_INTERVAL_5MINUTE, limit=1)
+            candles = self.client.get_klines(symbol=pair, interval=self.interval, limit=1)
             if candles:
                 df = pd.DataFrame(candles, columns=[
                     'timestamp', 'open', 'high', 'low', 'close', 'volume',
