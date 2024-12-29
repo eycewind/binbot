@@ -100,9 +100,35 @@ import time
 # Initialize a queue to store predictions and their timestamps
 prediction_queue = []
 
+import csv
+import os
+
 def fetch_and_predict():
     global df
     global prediction_queue
+
+    # Auto-increment log file name
+    log_dir = "logs"
+    os.makedirs(log_dir, exist_ok=True)  # Ensure logs directory exists
+    base_log_file = os.path.join(log_dir, "trading_log")
+    log_file_path = f"{base_log_file}_1.csv"
+
+    # Increment log file name if it already exists
+    count = 1
+    while os.path.exists(log_file_path):
+        count += 1
+        log_file_path = f"{base_log_file}_{count}.csv"
+
+    # Write headers to the new log file
+    with open(log_file_path, 'w', newline='') as log_file:
+        writer = csv.writer(log_file)
+        writer.writerow(['Timestamp', 'Close', 'Predicted Change', 'Predicted Value', 'Signal',
+                         'Trade Action', 'Trade Price', 'Position (BTC)', 'Balance'])
+
+    # Initial balance for testing
+    balance = 500  # Starting with $500
+    position = 0  # BTC held
+
     while True:
         new_candle_df = binance_client.fetch_latest_candle(pair)
         if new_candle_df is None or new_candle_df.empty:
@@ -110,24 +136,15 @@ def fetch_and_predict():
             time.sleep(60)
             continue
 
-        # Add the new data to the database
-        # binance_client.store_data_to_db(pair, new_candle_df.reset_index().values.tolist())
-
-        # Add empty columns to align with main DataFrame
+        # Add empty columns to align with the main DataFrame
         for column in df.columns:
             if column not in new_candle_df.columns:
                 new_candle_df[column] = 0
 
         # Append to main DataFrame
         df = pd.concat([df, new_candle_df])
-        # print("Appended new candle to DataFrame.")
-
-        # Ensure unique indices
-        df = df[~df.index.duplicated(keep='last')]
-
-        # Remove the oldest row to prevent infinite growth
-        df.drop(df.index[0], inplace=True)
-        # print("Dropped the oldest entry to prevent infinite growth.")
+        df = df[~df.index.duplicated(keep='last')]  # Ensure unique indices
+        df.drop(df.index[0], inplace=True)  # Remove oldest row
 
         # Compute features for the new candle
         batch_feature.calculate_sma(df)
@@ -144,24 +161,41 @@ def fetch_and_predict():
         # Generate prediction
         X_new = df.iloc[-1:].drop(['close'], axis=1)
         prediction = best_model.predict(X_new)[0]
-
         new_close = df.iloc[-1]['close']
         predicted_value_change = new_close * (1 - prediction / 100)
 
+        # Determine signal
         signal = "Buy" if prediction < buy_threshold else "Sell" if prediction > sell_threshold else "Hold"
 
-        # Log the signal
-        log_message = (
-            f"{df.index[-1]}, Close: {new_close:.2f}, "
-            f"PredictedChange:, {prediction:.4f}, PredictedValue:, {predicted_value_change:.2f}, Signal: {signal} "
-        )
+        # Determine trade action and update balance/position
+        trade_action = None
+        trade_price = None
 
-        print(log_message)
-        with open('trading_log.txt', 'a') as log_file:
-            log_file.write(log_message + '\n')
+        if signal == "Buy" and position == 0:
+            trade_action = "Buy"
+            trade_price = new_close
+            position = balance / new_close  # Calculate BTC bought with $500
+            balance = 0  # All funds invested
+        elif signal == "Sell" and position > 0:
+            trade_action = "Sell"
+            trade_price = new_close
+            balance = position * new_close  # Convert BTC back to USD
+            position = 0  # Exit position
+
+        # Log the signal and trade details
+        with open(log_file_path, 'a', newline='') as log_file:
+            writer = csv.writer(log_file)
+            writer.writerow([
+                df.index[-1], new_close, prediction, predicted_value_change, signal,
+                trade_action, trade_price, position, balance
+            ])
+
+        # Print log to console for monitoring
+        print(f"{df.index[-1]} | Close: {new_close:.2f} | Predicted Change: {prediction:.4f} | "
+              f"Predicted Value: {predicted_value_change:.2f} | Signal: {signal} | "
+              f"Trade Action: {trade_action} | Trade Price: {trade_price} | Position (BTC): {position:.6f} | Balance: {balance:.2f}")
 
         # Wait for next interval
-        # print("Waiting for the next 1-minute interval...")
         time.sleep(60)
 
 # Start the loop

@@ -335,3 +335,10 @@
 2024-12-29 17:16:00, Close: 94037.32, PredictedChange:, -0.2226, PredictedValue:, 94246.67, Signal: Buy 
 2024-12-29 17:17:00, Close: 94023.86, PredictedChange:, -0.2195, PredictedValue:, 94230.20, Signal: Buy 
 2024-12-29 17:18:00, Close: 93914.61, PredictedChange:, -0.0341, PredictedValue:, 93946.65, Signal: Hold 
+2024-12-29 17:19:00, Close: 93988.47, PredictedChange:, -0.0273, PredictedValue:, 94014.16, Signal: Hold 
+2024-12-29 17:20:00, Close: 94000.00, PredictedChange:, 0.0151, PredictedValue:, 93985.85, Signal: Hold 
+2024-12-29 17:21:00, Close: 93975.97, PredictedChange:, 0.1058, PredictedValue:, 93876.56, Signal: Sell 
+2024-12-29 17:22:00, Close: 93996.01, PredictedChange:, 0.0577, PredictedValue:, 93941.74, Signal: Hold 
+2024-12-29 17:23:00, Close: 94019.12, PredictedChange:, 0.0331, PredictedValue:, 93987.97, Signal: Hold 
+2024-12-29 17:24:00, Close: 94005.28, PredictedChange:, 0.0451, PredictedValue:, 93962.92, Signal: Hold 
+2024-12-29 17:25:00, Close: 94036.00, PredictedChange:, 0.0774, PredictedValue:, 93963.26, Signal: Hold 
