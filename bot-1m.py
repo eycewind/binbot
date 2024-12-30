@@ -165,7 +165,7 @@ def fetch_and_predict():
         predicted_value_change = new_close * (1 - prediction / 100)
 
         # Determine signal
-        signal = "Buy" if prediction < buy_threshold else "Sell" if prediction > sell_threshold else "Hold"
+        signal = "Sell" if prediction < buy_threshold else "Buy" if prediction > sell_threshold else "Hold"
 
         # Determine trade action and update balance/position
         trade_action = None
