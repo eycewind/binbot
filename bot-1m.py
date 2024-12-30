@@ -23,7 +23,7 @@ api_key = os.getenv("BINANCE_API_KEY")
 
 # Create Binance client & initialize it
 pair = "BTCUSDT"
-db_name = pair + "_1min" + "_dry_run"
+db_name = pair + "_1min" + "_dry_run.db"
 binance_client = BinanceClient(db_name)
 binance_client.set_interval("1m")
 # realtime_features = RealTimeFeatures()
