@@ -14,26 +14,47 @@ class BatchFeatures:
         Calculate Exponential Moving Averages (EMA).
         """
         df['ema_10'] = df['close'].ewm(span=10, adjust=False).mean()
+        df['ema_5'] = df['close'].ewm(span=5, adjust=False).mean()
+        df['ema_50'] = df['close'].ewm(span=50, adjust=False).mean()
 
-    def calculate_rsi(self, df):
+    def calculate_rsi(self, df, window=14):
         """
-        Calculate Relative Strength Index (RSI).
+        Calculate RSI and smoothed RSI.
         """
         delta = df['close'].diff()
-        gain = (delta.where(delta > 0, 0)).rolling(window=14).mean()
-        loss = (-delta.where(delta < 0, 0)).rolling(window=14).mean()
-        rs = gain / loss
+        gain = delta.where(delta > 0, 0)
+        loss = -delta.where(delta < 0, 0)
+
+        avg_gain = gain.rolling(window=window).mean()
+        avg_loss = loss.rolling(window=window).mean()
+
+        rs = avg_gain / avg_loss
         df['rsi_14'] = 100 - (100 / (1 + rs))
+
+        # Smoothed RSI
+        df['rsi_14_smoothed'] = df['rsi_14'].rolling(window=3).mean()  # Smoothing
+
 
     def calculate_macd(self, df):
         """
-        Calculate Moving Average Convergence Divergence (MACD).
+        Calculate MACD and its smoothed variants.
         """
         ema_12 = df['close'].ewm(span=12, adjust=False).mean()
         ema_26 = df['close'].ewm(span=26, adjust=False).mean()
         df['macd'] = ema_12 - ema_26
         df['macd_signal'] = df['macd'].ewm(span=9, adjust=False).mean()
         df['macd_hist'] = df['macd'] - df['macd_signal']
+
+        # Add smoothed MACD histogram
+        df['macd_hist_smoothed'] = df['macd_hist'].rolling(window=3).mean()  # 3-period rolling average
+
+        # Add alternative MACD with shorter EMAs
+        ema_6 = df['close'].ewm(span=6, adjust=False).mean()
+        ema_13 = df['close'].ewm(span=13, adjust=False).mean()
+        df['macd_fast'] = ema_6 - ema_13
+        df['macd_fast_signal'] = df['macd_fast'].ewm(span=5, adjust=False).mean()
+        df['macd_fast_hist'] = df['macd_fast'] - df['macd_fast_signal']
+
 
     def calculate_bollinger_bands(self, df):
         """
@@ -63,9 +84,15 @@ class BatchFeatures:
 
     def calculate_roc(self, df):
         """
-        Calculate Rate of Change (ROC).
+        Calculate Rate of Change (ROC) and smoothed ROC variants.
         """
+        df['roc_5'] = (df['close'] - df['close'].shift(5)) / df['close'].shift(5) * 100
         df['roc_10'] = (df['close'] - df['close'].shift(10)) / df['close'].shift(10) * 100
+        df['roc_20'] = (df['close'] - df['close'].shift(20)) / df['close'].shift(20) * 100
+
+        # Apply smoothing to reduce noise
+        df['roc_10_smoothed'] = df['roc_10'].rolling(window=3).mean()  # 3-period rolling average
+
 
     def calculate_lagged_features(self, df):
         """
@@ -73,6 +100,10 @@ class BatchFeatures:
         """
         df['close_lag_1'] = df['close'].shift(1)
         df['close_lag_3'] = df['close'].shift(3)
+        df['close_lag_5'] = df['close'].shift(5)
+        df['close_lag_7'] = df['close'].shift(7)
+        df['close_lag_9'] = df['close'].shift(9)
+        df['close_lag_11'] = df['close'].shift(11)
         df['macd_lag_1'] = df['close'].shift(1)
 
     def calculate_candle_features(self, df):
@@ -85,19 +116,26 @@ class BatchFeatures:
 
     def calculate_stochastic_oscillator(self, df, window=14):
         """
-        Calculate the Stochastic Oscillator.
+        Calculate the Stochastic Oscillator and its smoothed variants.
         """
         lowest_low = df['low'].rolling(window=window).min()
         highest_high = df['high'].rolling(window=window).max()
         df['stochastic_oscillator'] = ((df['close'] - lowest_low) / (highest_high - lowest_low)) * 100
 
+        # Add a smoothed version (%D)
+        df['stochastic_oscillator_slow'] = df['stochastic_oscillator'].rolling(window=3).mean()  # 3-period smoothing
+
+
     def calculate_williams_r(self, df, window=14):
         """
-        Calculate Williams %R.
+        Calculate Williams %R and smoothed Williams %R.
         """
         highest_high = df['high'].rolling(window=window).max()
         lowest_low = df['low'].rolling(window=window).min()
+
         df['williams_r'] = ((highest_high - df['close']) / (highest_high - lowest_low)) * -100
+        df['williams_r_smoothed'] = df['williams_r'].rolling(window=3).mean()  # Smoothing
+
 
     def calculate_moving_average_crossover(self, df, short_window=10, long_window=50):
         """
@@ -134,4 +172,12 @@ class BatchFeatures:
         negative_mf_sum = negative_flow.rolling(window=window).sum()
         mfi = 100 - (100 / (1 + (positive_mf_sum / negative_mf_sum)))
         df['mfi'] = mfi
+
+    def calculate_croc(self, df, window=10):
+        """
+        Calculate the Cumulative Rate of Change (CROC) to reduce noise in regular ROC.
+        """
+        roc = (df['close'] - df['close'].shift(window)) / df['close'].shift(window) * 100
+        df['croc_10'] = roc.rolling(window=3).mean()  # Smooth ROC further
+
 

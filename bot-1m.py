@@ -87,18 +87,12 @@ X_test = df.drop(['close'], axis=1)
 # Load the best model
 best_model = joblib.load('best_model_10candles_reduced_1min.joblib')
 
-# Generate predictions
-predictions = pd.DataFrame(best_model.predict(X_test)).shift(-span).values  # Predicted percentage changes
-
 # Define buy & sell thresholds. Optimal thresholds were finalized after thorough grid-search 
 buy_threshold = -0.13999999999999835
 sell_threshold = 0.09
 
 # Main loop starts here
 import time
-
-# Initialize a queue to store predictions and their timestamps
-prediction_queue = []
 
 import csv
 import os
