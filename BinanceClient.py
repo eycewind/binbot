@@ -17,7 +17,7 @@ class BinanceClient:
         Initialize the BinanceClient with API credentials and database name.
         """
         self.client = Client(api_key, api_secret)
-
+ 
     def set_interval(self, interval):
         """
         Set the interval for BinanceClient.
