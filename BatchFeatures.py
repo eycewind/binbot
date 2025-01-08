@@ -2,69 +2,132 @@ import pandas as pd
 import numpy as np
 
 class BatchFeatures:
+    def calculate_ema(self, df, spans=[5, 10, 50]):
+        """
+        Calculate Exponential Moving Averages (EMA).
+        """
+        for span in spans:
+            df[f'ema_{span}'] = df['close'].ewm(span=span, adjust=False).mean()
+
+    def calculate_rsi(self, df, windows=[14]):
+        """
+        Calculate RSI for multiple window sizes and smoothed RSI variants.
+
+        Args:
+            df (pd.DataFrame): Input DataFrame with a 'close' column.
+            windows (list): List of window sizes for calculating RSI.
+        """
+        for window in windows:
+            # Calculate price changes
+            delta = df['close'].diff()
+            gain = delta.where(delta > 0, 0)
+            loss = -delta.where(delta < 0, 0)
+
+            # Calculate average gains and losses
+            avg_gain = gain.rolling(window=window).mean()
+            avg_loss = loss.rolling(window=window).mean()
+
+            # Calculate RSI
+            rs = avg_gain / avg_loss
+            df[f'rsi_{window}'] = 100 - (100 / (1 + rs))
+
+            # Smoothed RSI
+            df[f'rsi_{window}_smoothed'] = df[f'rsi_{window}'].rolling(window=3).mean()  # 3-period smoothing
+
+
+    def calculate_macd(self, df, spans={'standard': (12, 26, 9), 'fast': (6, 13, 5)}):
+        """
+        Calculate MACD and its smoothed variants.
+
+        Args:
+            df (pd.DataFrame): Input DataFrame with a 'close' column.
+            spans (dict): Dictionary specifying spans for 'standard' and 'fast' MACD.
+                        Format: {'standard': (fast_span, slow_span, signal_span),
+                                'fast': (fast_span, slow_span, signal_span)}
+        """
+        # Standard MACD
+        fast_span, slow_span, signal_span = spans['standard']
+        ema_fast = df['close'].ewm(span=fast_span, adjust=False).mean()
+        ema_slow = df['close'].ewm(span=slow_span, adjust=False).mean()
+        df['macd'] = ema_fast - ema_slow
+        df['macd_signal'] = df['macd'].ewm(span=signal_span, adjust=False).mean()
+        df['macd_hist'] = df['macd'] - df['macd_signal']
+
+        # Smoothed MACD Histogram (Rolling Average)
+        df['macd_hist_smoothed'] = df['macd_hist'].rolling(window=3).mean()
+
+        # Fast MACD (Alternative)
+        fast_span_fast, slow_span_fast, signal_span_fast = spans['fast']
+        ema_fast_fast = df['close'].ewm(span=fast_span_fast, adjust=False).mean()
+        ema_slow_fast = df['close'].ewm(span=slow_span_fast, adjust=False).mean()
+        df['macd_fast'] = ema_fast_fast - ema_slow_fast
+        df['macd_fast_signal'] = df['macd_fast'].ewm(span=signal_span_fast, adjust=False).mean()
+        df['macd_fast_hist'] = df['macd_fast'] - df['macd_fast_signal']
+
+
+    def calculate_bollinger_bands(self, df, window=20, num_std_dev=2):
+        """
+        Calculate Bollinger Bands for given window size and standard deviation multiplier.
+
+        Args:
+            df (pd.DataFrame): Input DataFrame with a 'close' column.
+            window (int): Rolling window size for the SMA and standard deviation.
+            num_std_dev (float): Multiplier for the standard deviation.
+        """
+        # Calculate rolling mean (SMA) and standard deviation
+        sma = df['close'].rolling(window=window).mean()
+        std = df['close'].rolling(window=window).std()
+
+        # Calculate Bollinger Bands
+        df[f'bollinger_upper_{window}'] = sma + (num_std_dev * std)
+        df[f'bollinger_lower_{window}'] = sma - (num_std_dev * std)
+        df[f'bollinger_middle_{window}'] = sma  # Optional: Middle band (SMA)
+
+    def calculate_volume_features(self, df, windows=[20]):
+        """
+        Calculate Volume-Based Features for multiple window sizes.
+
+        Args:
+            df (pd.DataFrame): Input DataFrame with a 'volume' column.
+            windows (list): List of rolling window sizes for calculating volume features.
+        """
+        for window in windows:
+            # Calculate moving average of volume
+            df[f'volume_ma_{window}'] = df['volume'].rolling(window=window).mean()
+            
+            # Preserve backward compatibility for volume_ratio with the default 20-window
+            if window == 20:
+                df['volume_ratio'] = df['volume'] / df[f'volume_ma_{window}']
+            else:
+                # For other windows, use window-specific column names
+                df[f'volume_ratio_{window}'] = df['volume'] / df[f'volume_ma_{window}']
+
+    def calculate_candle_features(self, df, legacy_compatibility=True):
+        """
+        Calculate Candle Features with an optional 'candle_range' feature.
+
+        Args:
+            df (pd.DataFrame): Input DataFrame with 'open', 'close', 'high', and 'low' columns.
+            legacy_compatibility (bool): If True, only calculates 'candle_body', 'upper_wick', and 'lower_wick'.
+                                        If False, also adds 'candle_range'.
+        """
+        # Core candle features (always calculated)
+        df['candle_body'] = df['close'] - df['open']
+        df['upper_wick'] = df['high'] - df[['close', 'open']].max(axis=1)
+        df['lower_wick'] = df[['close', 'open']].min(axis=1) - df['low']
+
+        # Add 'candle_range' only if legacy_compatibility is False
+        if not legacy_compatibility:
+            df['candle_range'] = df['high'] - df['low']
+
+        
     def calculate_sma(self, df):
         """
         Calculate Simple Moving Averages (SMA).
         """
         df['sma_10'] = df['close'].rolling(window=10).mean()
         df['sma_50'] = df['close'].rolling(window=50).mean()
-
-    def calculate_ema(self, df):
-        """
-        Calculate Exponential Moving Averages (EMA).
-        """
-        df['ema_10'] = df['close'].ewm(span=10, adjust=False).mean()
-        df['ema_5'] = df['close'].ewm(span=5, adjust=False).mean()
-        df['ema_50'] = df['close'].ewm(span=50, adjust=False).mean()
-
-    def calculate_rsi(self, df, window=14):
-        """
-        Calculate RSI and smoothed RSI.
-        """
-        delta = df['close'].diff()
-        gain = delta.where(delta > 0, 0)
-        loss = -delta.where(delta < 0, 0)
-
-        avg_gain = gain.rolling(window=window).mean()
-        avg_loss = loss.rolling(window=window).mean()
-
-        rs = avg_gain / avg_loss
-        df['rsi_14'] = 100 - (100 / (1 + rs))
-
-        # Smoothed RSI
-        df['rsi_14_smoothed'] = df['rsi_14'].rolling(window=3).mean()  # Smoothing
-
-
-    def calculate_macd(self, df):
-        """
-        Calculate MACD and its smoothed variants.
-        """
-        ema_12 = df['close'].ewm(span=12, adjust=False).mean()
-        ema_26 = df['close'].ewm(span=26, adjust=False).mean()
-        df['macd'] = ema_12 - ema_26
-        df['macd_signal'] = df['macd'].ewm(span=9, adjust=False).mean()
-        df['macd_hist'] = df['macd'] - df['macd_signal']
-
-        # Add smoothed MACD histogram
-        df['macd_hist_smoothed'] = df['macd_hist'].rolling(window=3).mean()  # 3-period rolling average
-
-        # Add alternative MACD with shorter EMAs
-        ema_6 = df['close'].ewm(span=6, adjust=False).mean()
-        ema_13 = df['close'].ewm(span=13, adjust=False).mean()
-        df['macd_fast'] = ema_6 - ema_13
-        df['macd_fast_signal'] = df['macd_fast'].ewm(span=5, adjust=False).mean()
-        df['macd_fast_hist'] = df['macd_fast'] - df['macd_fast_signal']
-
-
-    def calculate_bollinger_bands(self, df):
-        """
-        Calculate Bollinger Bands.
-        """
-        sma_20 = df['close'].rolling(window=20).mean()
-        std_20 = df['close'].rolling(window=20).std()
-        df['bollinger_upper'] = sma_20 + (2 * std_20)
-        df['bollinger_lower'] = sma_20 - (2 * std_20)
-
+        
     def calculate_atr(self, df):
         """
         Calculate Average True Range (ATR).
@@ -75,12 +138,7 @@ class BatchFeatures:
         true_range = high_low.to_frame('hl').join(high_prev_close.to_frame('hpc')).join(low_prev_close.to_frame('lpc')).max(axis=1)
         df['atr_14'] = true_range.rolling(window=14).mean()
 
-    def calculate_volume_features(self, df):
-        """
-        Calculate Volume-Based Features.
-        """
-        df['volume_ma_20'] = df['volume'].rolling(window=20).mean()
-        df['volume_ratio'] = df['volume'] / df['volume_ma_20']
+
 
     def calculate_roc(self, df):
         """
@@ -106,13 +164,7 @@ class BatchFeatures:
         df['close_lag_11'] = df['close'].shift(11)
         df['macd_lag_1'] = df['close'].shift(1)
 
-    def calculate_candle_features(self, df):
-        """
-        Calculate Candle Features.
-        """
-        df['candle_body'] = df['close'] - df['open']
-        df['upper_wick'] = df['high'] - df[['close', 'open']].max(axis=1)
-        df['lower_wick'] = df[['close', 'open']].min(axis=1) - df['low']
+
 
     def calculate_stochastic_oscillator(self, df, window=14):
         """
