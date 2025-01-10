@@ -92,8 +92,8 @@ best_model = joblib.load('lstm_ema_10candles_1min.joblib')
 scaler = joblib.load("lstm_ema_scaler.pkl")  # Ensure you saved your scaler during training
 
 # Define buy & sell thresholds. Optimal thresholds were finalized after thorough grid-search 
-buy_threshold = 0.3751
-sell_threshold =  -0.2125565528869623
+sell_threshold = 0.3751
+buy_threshold =  -0.2125565528869623
 
 def initialize_log_file(log_dir="logs", base_log_file="trading_log"):
     """
@@ -234,8 +234,8 @@ def determine_signal(prediction):
     """
     predicted_value_change = prediction
     signal = (
-        "Sell" if predicted_value_change < sell_threshold else
-        "Buy" if predicted_value_change > buy_threshold else
+        "Sell" if predicted_value_change > sell_threshold else
+        "Buy" if predicted_value_change < buy_threshold else
         "Hold"
     )
     return signal, predicted_value_change
