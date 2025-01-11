@@ -17,7 +17,7 @@ api_key = os.getenv("BINANCE_API_KEY")
 
 # Create Binance client & initialize it
 pair = "BTCUSDT"
-db_name = pair + "_1min" + "_dry_run.db"
+db_name = pair + "_1min_ema5_n10" + "_dry_run.db"
 binance_client = BinanceClient(db_name)
 binance_client.set_interval("1m")
 bf = BatchFeatures()
@@ -74,14 +74,14 @@ df.dropna(inplace=True)
 df_raw = df.copy()
 
 # Load the best model
-best_model = joblib.load('lstm_10candles_1min_ema5.joblib')
+best_model = joblib.load('lstm_n10candles_1min_ema5.joblib')
 
 # Load the scaler and LSTM model
-scaler = joblib.load("lstm_scaler.pkl")  # Ensure you saved your scaler during training
+scaler = joblib.load("lstm_scaler_em5_n10.pkl")  # Ensure you saved your scaler during training
 
 # Define buy & sell thresholds. Optimal thresholds were finalized after thorough grid-search 
-sell_threshold = 0.8749999999999999
-buy_threshold =  -1.1169685935974183
+sell_threshold = 0.01
+buy_threshold =  -0.0142695
 
 def initialize_log_file(log_dir="logs", base_log_file="trading_log"):
     """
@@ -161,20 +161,20 @@ def compute_features():
     bf.calculate_on_balance_volume(df)
     bf.calculate_money_flow_index(df)
     bf.calculate_croc(df)
-
     
     df.dropna(inplace=True)
 
-def calculate_target(alpha=0.8, nn=10):
+def calculate_target(nn=10):
     """
     Calculate the target for the dataset.
     """
     # Predict the percentage price change over the next 'n' candles
-    df['target'] = (df['ema_5'] - df['ema_5'].shift(nn)) / df['ema_5'].shift(nn) * 100
+    df['target'] = (df['ema_5'] - df['ema_5'].shift(-nn)) / df['ema_5'] * 100
 
-
-    for ii in range(1, nn):
+    for ii in range(1, 2 * nn):
         df[f'target_lag_{ii}'] = df['target'].shift(ii)
+
+    df.dropna(inplace=True)
 
 def generate_prediction(seq_length):
     """
@@ -256,13 +256,14 @@ def fetch_and_predict():
             continue
 
         compute_features()
-        calculate_target()
+        calculate_target(5)
         prediction = generate_prediction(seq_length)
 
         new_close = df.iloc[-1]["close"]
         signal, predicted_value_change = determine_signal(prediction)
         trade_action, trade_price, position, balance = execute_trade(signal, new_close, position, balance)
 
+        # Log the results
         # Log the results
         with open(log_file_path, "a", newline="") as log_file:
             writer = csv.writer(log_file)
@@ -273,6 +274,7 @@ def fetch_and_predict():
                     prediction,
                     predicted_value_change,
                     df.iloc[-1]['ema_5'],
+                    df.iloc[-1]['ema_10'],
                     df.iloc[-1]['target'],
                     signal,
                     trade_action,
@@ -286,9 +288,10 @@ def fetch_and_predict():
         print(
             f"{df.index[-1]} | Close: {new_close:.2f} | Predicted Change: {prediction:.4f} | "
             f"Predicted Value: {predicted_value_change:.2f} | EMA_5: {df.iloc[-1]['ema_5']:.2f} | "
-            f"Target: {df.iloc[-1]['target']:.4f} | Signal: {signal} | "
+            f"EMA_10: {df.iloc[-1]['ema_10']:.2f} | Target: {df.iloc[-1]['target']:.4f} | Signal: {signal} | "
             f"Trade Action: {trade_action} | Trade Price: {trade_price} | Position (BTC): {position:.6f} | Balance: {balance:.2f}"
         )
+
 
         # Wait for the next interval
         time.sleep(60)
