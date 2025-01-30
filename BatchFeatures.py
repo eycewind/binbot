@@ -24,11 +24,12 @@ class BatchFeatures:
             loss = -delta.where(delta < 0, 0)
 
             # Calculate average gains and losses
-            avg_gain = gain.rolling(window=window).mean()
-            avg_loss = loss.rolling(window=window).mean()
+            avg_gain = gain.ewm(alpha=1/window, adjust=False).mean()
+            avg_loss = loss.ewm(alpha=1/window, adjust=False).mean()
 
             # Calculate RSI
-            rs = avg_gain / avg_loss
+            # add epsilon to prevent division by zero
+            rs = avg_gain / (avg_loss + 1e-10)
             df[f'rsi_{window}'] = 100 - (100 / (1 + rs))
 
             # Smoothed RSI
@@ -45,6 +46,8 @@ class BatchFeatures:
                         Format: {'standard': (fast_span, slow_span, signal_span),
                                 'fast': (fast_span, slow_span, signal_span)}
         """
+        if 'ema_12' not in df or 'ema_26' not in df:
+            self.calculate_ema(df, spans=[12, 26])
         # Standard MACD
         fast_span, slow_span, signal_span = spans['standard']
         ema_fast = df['close'].ewm(span=fast_span, adjust=False).mean()
@@ -136,7 +139,7 @@ class BatchFeatures:
         high_prev_close = (df['high'] - df['close'].shift()).abs()
         low_prev_close = (df['low'] - df['close'].shift()).abs()
         true_range = high_low.to_frame('hl').join(high_prev_close.to_frame('hpc')).join(low_prev_close.to_frame('lpc')).max(axis=1)
-        df['atr_14'] = true_range.rolling(window=14).mean()
+        df['atr_14'] = true_range.ewm(alpha=1/14, adjust=False).mean()
 
 
 
@@ -162,7 +165,7 @@ class BatchFeatures:
         df['close_lag_7'] = df['close'].shift(7)
         df['close_lag_9'] = df['close'].shift(9)
         df['close_lag_11'] = df['close'].shift(11)
-        df['macd_lag_1'] = df['close'].shift(1)
+        df['macd_lag_1'] = df['macd'].shift(1)
 
 
 
@@ -232,4 +235,15 @@ class BatchFeatures:
         roc = (df['close'] - df['close'].shift(window)) / df['close'].shift(window) * 100
         df['croc_10'] = roc.rolling(window=3).mean()  # Smooth ROC further
 
+    def calculate_regime(self, df):
+        # Priority 1: Market Regime Features
+        df['regime'] = np.select(
+            [
+                df['atr_14'] > df['atr_14'].quantile(0.8),
+                df['sma_10'] > df['sma_50'],
+                df['volume_ma_20'] < df['volume_ma_20'].quantile(0.3)
+            ],
+            ['high_vol', 'bull', 'low_liquidity'],
+            default='neutral'
+        )
 
