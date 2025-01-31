@@ -235,15 +235,45 @@ class BatchFeatures:
         roc = (df['close'] - df['close'].shift(window)) / df['close'].shift(window) * 100
         df['croc_10'] = roc.rolling(window=3).mean()  # Smooth ROC further
 
-    def calculate_regime(self, df):
-        # Priority 1: Market Regime Features
-        df['regime'] = np.select(
+    def calculate_regime(self, df, slope_threshold=0.02):
+        """
+        Classifies market regime using:
+        - 'bull' → SMA 10 crossing above SMA 50 & slope confirmation
+        - 'bear' → SMA 10 crossing below SMA 50 & slope confirmation
+        - 'high_vol' → High ATR (Volatile Market)
+        - 'low_liquidity' → Low Trading Volume
+        - 'neutral' → No strong trend
+
+        Args:
+            df (pd.DataFrame): Data containing SMA and ROC (Rate of Change).
+            slope_threshold (float): Minimum slope change to confirm trend.
+
+        Returns:
+            pd.DataFrame: Updated DataFrame with 'regime' column.
+        """
+
+        # Compute SMA crossovers (previous value vs. current value)
+        df["sma_crossover_up"] = (df["sma_10"].shift(1) < df["sma_50"].shift(1)) & (df["sma_10"] > df["sma_50"])
+        df["sma_crossover_down"] = (df["sma_10"].shift(1) > df["sma_50"].shift(1)) & (df["sma_10"] < df["sma_50"])
+
+        # Compute SMA slopes (Rate of Change over 10 periods)
+        df["sma_10_slope"] = df["sma_10"].pct_change(periods=10)
+        df["sma_50_slope"] = df["sma_50"].pct_change(periods=10)
+
+        # Define market regimes
+        df["regime"] = np.select(
             [
-                df['atr_14'] > df['atr_14'].quantile(0.8),
-                df['sma_10'] > df['sma_50'],
-                df['volume_ma_20'] < df['volume_ma_20'].quantile(0.3)
+                df["atr_14"] > df["atr_14"].quantile(0.8),  # High volatility
+                df["sma_crossover_up"] & (df["sma_10_slope"] > slope_threshold),  # Bullish crossover & slope
+                df["sma_crossover_down"] & (df["sma_10_slope"] < -slope_threshold),  # Bearish crossover & slope
+                df["volume_ma_20"] < df["volume_ma_20"].quantile(0.3),  # Low liquidity
             ],
-            ['high_vol', 'bull', 'low_liquidity'],
-            default='neutral'
+            ["high_vol", "bull", "bear", "low_liquidity"],
+            default="neutral"
         )
+
+        # Drop intermediate columns (optional)
+        # df.drop(columns=["sma_crossover_up", "sma_crossover_down", "sma_10_slope", "sma_50_slope"], inplace=True)
+
+        return df
 
