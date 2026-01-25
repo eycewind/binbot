@@ -19,5 +19,9 @@
         "titleBar.inactiveBackground": "#33669999",
         "titleBar.inactiveForeground": "#e7e7e799"
     },
-    "peacock.color": "#42b883"
+    "peacock.color": "#42b883",
+    "python.defaultInterpreterPath": "${workspaceFolder}/.venv/bin/python",
+    "python.terminal.activateEnvironment": true,
+    "jupyter.interactiveWindowMode": "perFile",
+    "jupyter.askForKernelRestart": false
 }

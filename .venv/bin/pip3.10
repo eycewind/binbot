@@ -1,4 +1,4 @@
-#!/home/hassan/binbot/.venv/bin/python3
+#!/home/hassan/binbot/.venv/bin/python
 # -*- coding: utf-8 -*-
 import re
 import sys
