@@ -22,6 +22,6 @@
     "peacock.color": "#42b883",
     "python.defaultInterpreterPath": "${workspaceFolder}/.venv/bin/python",
     "python.terminal.activateEnvironment": true,
-    "jupyter.interactiveWindowMode": "perFile",
-    "jupyter.askForKernelRestart": false
+    "jupyter.askForKernelRestart": false,
+    "jupyter.interactiveWindow.creationMode": "perFile"
 }
