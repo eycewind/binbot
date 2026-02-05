@@ -1318,6 +1318,144 @@ def find_pre_shock_entry(df, event_ts):
 
     return None
 
+def find_pre_shock_entry_v2(
+    df,
+    event_ts,
+    *,
+    PRE_BARS: int = 144,
+    RANGE_BARS: int = 24,
+    MAX_LEAD_BARS: int = 36,
+
+    # Primary "delay naturally" knob (start small!)
+    BREAK_ATR_BUFFER: float = 0.10,   # try 0.05 -> 0.15 -> 0.20
+
+    # keep your old impulse logic, but allow tuning
+    BODY_ATR_MULT: float = 0.75,
+
+    # optional quality filter (start OFF)
+    USE_STRONG_CLOSE: bool = False,
+    STRONG_CLOSE_Q: float = 0.70,
+
+    # optional volume filter (start OFF)
+    USE_RVOL: bool = False,
+    RVOL_WIN: int = 144,
+    RVOL_MIN: float = 1.05,
+    RVOL_RISING: bool = False,
+
+    allow_short: bool = True,
+):
+    """
+    Balanced v2:
+      - scans newest->oldest (naturally later)
+      - adds small breakout buffer (naturally later)
+      - optional strong-close / RVOL gates (off by default)
+    """
+    import numpy as np
+    import pandas as pd
+
+    if df is None or df.empty:
+        return None
+    if not isinstance(df.index, pd.DatetimeIndex):
+        raise ValueError("find_pre_shock_entry_v2: df must have a DatetimeIndex")
+
+    df = df.sort_index()
+    event_ts = pd.Timestamp(event_ts)
+
+    # snap to previous bar if not exact
+    if event_ts not in df.index:
+        loc = df.index.searchsorted(event_ts, side="right") - 1
+        if loc < 0:
+            return None
+        event_ts = df.index[loc]
+
+    event_loc = df.index.get_loc(event_ts)
+    if event_loc < (PRE_BARS + 5):
+        return None
+
+    pre = df.iloc[event_loc - PRE_BARS : event_loc].copy()
+    if len(pre) < max(PRE_BARS, RANGE_BARS, MAX_LEAD_BARS):
+        return None
+
+    # same atr_pre proxy you already used
+    atr_pre = (pre["high"].astype(float) - pre["low"].astype(float)).mean()
+    if not np.isfinite(atr_pre) or atr_pre <= 0:
+        return None
+
+    comp = pre.iloc[-RANGE_BARS:]
+    range_high = float(comp["high"].max())
+    range_low  = float(comp["low"].min())
+
+    scan = pre.iloc[-MAX_LEAD_BARS:].copy()
+    if scan.empty:
+        return None
+
+    # optional RVOL
+    if USE_RVOL:
+        vol_med = pre["volume"].astype(float).rolling(RVOL_WIN).median()
+        scan["rvol"] = scan["volume"].astype(float) / vol_med.reindex(scan.index)
+    else:
+        scan["rvol"] = np.nan
+
+    up_level = range_high + BREAK_ATR_BUFFER * atr_pre
+    dn_level = range_low  - BREAK_ATR_BUFFER * atr_pre
+
+    # newest -> oldest (THIS is your "natural delay" #1)
+    for i in range(len(scan) - 1, -1, -1):
+        row = scan.iloc[i]
+        ts  = scan.index[i]
+
+        hi = float(row["high"]); lo = float(row["low"])
+        op = float(row["open"]); cl = float(row["close"])
+
+        body = abs(cl - op)
+
+        # impulse gate (same idea as old function)
+        if body <= BODY_ATR_MULT * atr_pre:
+            continue
+
+        rng = max(hi - lo, 1e-12)
+        close_pos = (cl - lo) / rng  # 0..1
+
+        # ---- LONG candidate ----
+        if cl > up_level:
+            if USE_STRONG_CLOSE and (close_pos < STRONG_CLOSE_Q):
+                continue
+
+            if USE_RVOL:
+                rvol = float(row.get("rvol", np.nan))
+                if not (np.isfinite(rvol) and rvol >= RVOL_MIN):
+                    continue
+                if RVOL_RISING and i >= 2:
+                    r0 = float(scan.iloc[i]["rvol"])
+                    r1 = float(scan.iloc[i - 1]["rvol"])
+                    r2 = float(scan.iloc[i - 2]["rvol"])
+                    if not (np.isfinite(r0) and np.isfinite(r1) and np.isfinite(r2) and (r0 > r1 > r2)):
+                        continue
+
+            return {"entry_ts": ts, "direction": "long", "entry_price": cl}
+
+        # ---- SHORT candidate ----
+        if allow_short and (cl < dn_level):
+            if USE_STRONG_CLOSE and (close_pos > (1.0 - STRONG_CLOSE_Q)):
+                continue
+
+            if USE_RVOL:
+                rvol = float(row.get("rvol", np.nan))
+                if not (np.isfinite(rvol) and rvol >= RVOL_MIN):
+                    continue
+                if RVOL_RISING and i >= 2:
+                    r0 = float(scan.iloc[i]["rvol"])
+                    r1 = float(scan.iloc[i - 1]["rvol"])
+                    r2 = float(scan.iloc[i - 2]["rvol"])
+                    if not (np.isfinite(r0) and np.isfinite(r1) and np.isfinite(r2) and (r0 > r1 > r2)):
+                        continue
+
+            return {"entry_ts": ts, "direction": "short", "entry_price": cl}
+
+    return None
+
+
+
 def compute_shock_direction(row, dfs):
     sym = row["symbol"]
     event_ts = row["event_ts"]
