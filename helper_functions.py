@@ -1494,7 +1494,12 @@ def simulate_long_exit(
         DEAD_MFE_ATR = min(DEAD_MFE_ATR, 0.5)
 
     # Hard stop (static from ATR0)
-    hard_stop_px = entry_px - STOP_ATR * atr0
+    # hard_stop_px = entry_px - STOP_ATR * atr0
+    if is_deep:
+        hard_stop_px = entry_px - (STOP_ATR * 1.5) * atr0
+    else:
+        hard_stop_px = entry_px - STOP_ATR * atr0
+
 
     # Helpers for converting ATR-units -> return threshold
     def _atr_ret(atr_value: float, atr_mult: float) -> float:
@@ -1540,26 +1545,30 @@ def simulate_long_exit(
 
     # Must show minimum pop by end of Phase A
     if mfe_A < _atr_ret(atr0, A_MFE_ATR):
-        exit_ts = df.index[a_end_loc]
-        exit_px = float(df["close"].iloc[a_end_loc])
-        ret = (exit_px - entry_px) / entry_px
-        ret_net = ret - 2 * FEE
-        return {
-            "exit_ts": exit_ts,
-            "exit_px": float(exit_px),
-            "ret": float(ret),
-            "ret_net": float(ret_net),
-            "mfe": float(max(0.0, mfe_A)),
-            "mae": float(mae_A),
-            "exit_reason": "A_FAIL_NO_POP",
-            "trail_active": False,
-            "mfe_A": float(mfe_A),
-            "mae_A": float(mae_A),
-            "ACTIVATE_ATR": float(ACTIVATE_ATR),
-            "TRAIL_RETRACE": float(TRAIL_RETRACE),
-            "DEAD_BARS": int(DEAD_BARS),
-            "DEAD_MFE_ATR": float(DEAD_MFE_ATR),
-        }
+        if not is_deep:
+            exit_ts = df.index[a_end_loc]
+            exit_px = float(df["close"].iloc[a_end_loc])
+            ret = (exit_px - entry_px) / entry_px
+            ret_net = ret - 2 * FEE
+            return {
+                "exit_ts": exit_ts,
+                "exit_px": float(exit_px),
+                "ret": float(ret),
+                "ret_net": float(ret_net),
+                "mfe": float(max(0.0, mfe_A)),
+                "mae": float(mae_A),
+                "exit_reason": "A_FAIL_NO_POP",
+                "trail_active": False,
+                "mfe_A": float(mfe_A),
+                "mae_A": float(mae_A),
+                "ACTIVATE_ATR": float(ACTIVATE_ATR),
+                "TRAIL_RETRACE": float(TRAIL_RETRACE),
+                "DEAD_BARS": int(DEAD_BARS),
+                "DEAD_MFE_ATR": float(DEAD_MFE_ATR),
+            }
+        else:
+            # deep compressions: do NOT fail early
+            pass
 
     # If pass Phase A, continue from next bar
     loc_after_A = min(a_end_loc + 1, len(df) - 1)
@@ -1588,11 +1597,25 @@ def simulate_long_exit(
         bars_since_start = loc - loc0
 
         # A) Hard stop
-        if close <= hard_stop_px:
+        # Soft time decay exit (prevents hard stop damage)
+        if bars_since_start >= int(0.5 * TIME_STOP_BARS):
+            if mfe < 0.4 * _atr_ret(atr0, ACTIVATE_ATR):
+                exit_ts = ts
+                exit_px = close
+                exit_reason = "SOFT_TIME_EXIT"
+            break
+        # Emergency stop (catastrophic only)
+        if close <= entry_px - 3.0 * atr0:
             exit_ts = ts
             exit_px = close
-            exit_reason = "HARD_STOP"
-            break
+            exit_reason = "EMERGENCY_STOP"
+        break
+
+        # if close <= hard_stop_px:
+        #     exit_ts = ts
+        #     exit_px = close
+        #     exit_reason = "HARD_STOP"
+        #     break
 
         # ATR per bar (fallback to atr0)
         atr_loc = atr.iloc[loc] if loc < len(atr) else np.nan
