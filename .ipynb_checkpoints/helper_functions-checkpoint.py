@@ -1426,7 +1426,7 @@ def simulate_long_exit(
     A_BARS=3,              # validate within first N bars after event+1
     A_MFE_ATR=0.6,         # must achieve at least this MFE (ATR units)
     A_EARLY_STOP_ATR=1.0,  # early stop during Phase A (ATR units)
-    A_USE_EARLY_STOP=True,
+    A_USE_EARLY_STOP=False,
 
     # ------------------------
     # New: compression-aware policy knobs
@@ -1599,17 +1599,18 @@ def simulate_long_exit(
         # A) Hard stop
         # Soft time decay exit (prevents hard stop damage)
         if bars_since_start >= int(0.5 * TIME_STOP_BARS):
-            if mfe < 0.4 * _atr_ret(atr0, ACTIVATE_ATR):
+            if(not trail_active) and (mfe < 0.4 * _atr_ret(atr0, ACTIVATE_ATR)):
                 exit_ts = ts
                 exit_px = close
                 exit_reason = "SOFT_TIME_EXIT"
-            break
+                break
         # Emergency stop (catastrophic only)
-        if close <= entry_px - 3.0 * atr0:
+        em_mult = 8.0 if is_deep else 6.0
+        if close <= entry_px - em_mult * atr0:
             exit_ts = ts
             exit_px = close
             exit_reason = "EMERGENCY_STOP"
-        break
+            break
 
         # if close <= hard_stop_px:
         #     exit_ts = ts
