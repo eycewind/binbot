@@ -1296,7 +1296,8 @@ def find_pre_shock_entry(df, event_ts):
     scan = pre.iloc[-MAX_LEAD_BARS:]
 
 
-    for ts, row in scan.iterrows():
+    # for ts, row in scan.iterrows():
+    for ts, row in scan.iloc[::-1].iterrows():  # newest -> oldest
         body = abs(row["close"] - row["open"])
 
         # long
@@ -2205,3 +2206,436 @@ def equity_curve_from_taken(taken_df, initial_equity=1.0):
         equity += g["pnl"].sum()
         curve.append((ts, equity))
     return pd.DataFrame(curve, columns=["ts","equity"])
+
+
+def plot_context_v2(
+    df,
+    trades,
+    center_ts,
+    lookback=200,
+    lookforward=200,
+    title="",
+    *,
+    show_compression: bool = False,
+    comp_kwargs: dict | None = None,
+    vol_ma_win: int = 20,
+    range_def: str = "hl_over_close",
+    mark_center: bool = True,
+):
+    import matplotlib.pyplot as plt
+    import numpy as np
+    import pandas as pd
+
+    if df is None or df.empty:
+        raise ValueError("plot_context_v2: df is empty")
+
+    if not isinstance(df.index, pd.DatetimeIndex):
+        raise ValueError("plot_context_v2: df must have a DatetimeIndex")
+
+    df = df.sort_index()
+    center_ts = pd.Timestamp(center_ts)
+
+    # if center_ts is not exactly in the index, snap to the previous bar
+    if center_ts not in df.index:
+        loc = df.index.searchsorted(center_ts, side="right") - 1
+        if loc < 0:
+            raise ValueError("plot_context_v2: center_ts is before df start")
+        center_ts = df.index[loc]
+
+    # slice window (inclusive-ish)
+    idx = df.index.get_loc(center_ts)
+    lo = max(0, idx - int(lookback))
+    hi = min(len(df) - 1, idx + int(lookforward))
+    d = df.iloc[lo:hi + 1].copy()
+
+    # indicators
+    d["atr"] = ATR(d, 14)
+    if range_def == "hl_over_close":
+        d["range"] = (d["high"].astype(float) - d["low"].astype(float)) / d["close"].astype(float)
+    elif range_def == "true_range_over_close":
+        pc = d["close"].shift(1)
+        tr = pd.concat([
+            (d["high"] - d["low"]),
+            (d["high"] - pc).abs(),
+            (d["low"] - pc).abs(),
+        ], axis=1).max(axis=1)
+        d["range"] = tr.astype(float) / d["close"].astype(float)
+    else:
+        raise ValueError("plot_context_v2: range_def must be 'hl_over_close' or 'true_range_over_close'")
+
+    d["vol_ma"] = d["volume"].astype(float).rolling(int(vol_ma_win)).mean()
+
+    # optional compression diagnostics (vol_compression, rvol, is_compressed)
+    comp_cols = []
+    comp_thr = {}
+    if show_compression:
+        # Need extra bars BEFORE the plot window for rolling baselines
+        ck = dict(
+            atr_short=20,
+            atr_long=100,
+            vol_win=144,
+            vol_ratio_thresh=0.6,
+            rvol_thresh=0.6,
+            min_duration=12,
+        )
+        if comp_kwargs:
+            ck.update(comp_kwargs)
+
+        extra = int(max(ck.get("atr_long", 100), ck.get("vol_win", 144), 200))
+        lo2 = max(0, lo - extra)
+        d2 = df.iloc[lo2:hi + 1].copy()
+
+        try:
+            d2c = detect_compression_state(d2, **ck)
+            # align back to d
+            for c in ("vol_compression", "rvol", "is_compressed"):
+                if c in d2c.columns:
+                    d[c] = d2c.reindex(d.index)[c]
+                    comp_cols.append(c)
+
+            comp_thr = {
+                "vol_ratio_thresh": float(ck.get("vol_ratio_thresh", 0.6)),
+                "rvol_thresh": float(ck.get("rvol_thresh", 0.6)),
+            }
+        except Exception as e:
+            # Don't kill plotting if compression calc fails for a short window
+            print(f"plot_context_v2: compression diagnostics skipped ({e})")
+
+    n_axes = 4 + (3 if (show_compression and len(comp_cols) == 3) else 0)
+    fig_h = 2.0 * n_axes
+    fig, axs = plt.subplots(n_axes, 1, figsize=(14, fig_h), sharex=True)
+    if n_axes == 1:
+        axs = [axs]
+
+    # ---- Price
+    axs[0].plot(d.index, d["close"], label="close")
+
+    if mark_center:
+        axs[0].axvline(center_ts, ls="--", alpha=0.35)
+
+    # mark trades if provided
+    if trades is not None and len(trades):
+        t = trades.copy()
+        if "entry_ts" in t.columns:
+            t["entry_ts"] = pd.to_datetime(t["entry_ts"]).dt.tz_localize(None)
+        if "exit_ts" in t.columns:
+            t["exit_ts"] = pd.to_datetime(t["exit_ts"]).dt.tz_localize(None)
+
+        t = t[(t["entry_ts"] >= d.index[0]) & (t["entry_ts"] <= d.index[-1])]
+
+        ent = t["entry_ts"][t["entry_ts"].isin(d.index)]
+        exi = t["exit_ts"][t["exit_ts"].isin(d.index)]
+
+        if len(ent):
+            axs[0].scatter(ent, d.loc[ent, "close"], marker="^", c="g")
+        if len(exi):
+            axs[0].scatter(exi, d.loc[exi, "close"], marker="v", c="r")
+    axs[0].set_ylabel("Price")
+
+    # ---- Volume
+    axs[1].plot(d.index, d["vol_ma"], lw=1, label=f"vol_ma({int(vol_ma_win)})")
+    axs[1].legend(loc="upper left")
+    axs[1].set_ylabel("Volume")
+
+    # ---- Volatility
+    axs[2].plot(d.index, d["range"], label="Range", alpha=0.7)
+    axs[2].legend()
+    axs[2].set_ylabel("Vol")
+
+    # ---- ATR
+    axs[3].plot(d.index, d["atr"], label="ATR(14)")
+    axs[3].legend()
+    axs[3].set_ylabel("ATR")
+
+    # ---- Compression diagnostics (optional)
+    ax_i = 4
+    if show_compression and len(comp_cols) == 3:
+        # vol_compression (atr/atr_med)
+        axs[ax_i].plot(d.index, d["vol_compression"], label="vol_compression")
+        axs[ax_i].axhline(comp_thr.get("vol_ratio_thresh", 0.6), ls="--", alpha=0.4)
+        axs[ax_i].legend(loc="upper left")
+        axs[ax_i].set_ylabel("ATR/ATRmed")
+        ax_i += 1
+
+        # rvol
+        axs[ax_i].plot(d.index, d["rvol"], label="rvol")
+        axs[ax_i].axhline(comp_thr.get("rvol_thresh", 0.6), ls="--", alpha=0.4)
+        axs[ax_i].legend(loc="upper left")
+        axs[ax_i].set_ylabel("RVOL")
+        ax_i += 1
+
+        # is_compressed (0/1)
+        y = d["is_compressed"].astype(float)
+        axs[ax_i].step(d.index, y, where="post", label="is_compressed")
+        axs[ax_i].set_ylim(-0.05, 1.05)
+        axs[ax_i].set_yticks([0, 1])
+        axs[ax_i].legend(loc="upper left")
+        axs[ax_i].set_ylabel("Compressed")
+
+    plt.suptitle(title)
+    plt.show()
+
+
+def simulate_long_exit_impulse(
+    df, entry_ts, event_ts, entry_px,
+    H_MAX=72, BAR_MIN=5, FEE=0.001,
+    VOL_MA=20,                 # volume baseline
+    RANGE_MA=20,               # range baseline
+    ACTIVATE_RVOL=2.0,          # require at least this RVOL to consider "impulse on"
+    ACTIVATE_RANGE_Z=1.0,       # require range expansion vs baseline
+    STALL_FRAC=0.35,            # exit if impulse_score drops below this fraction of its peak
+    MIN_HOLD_BARS=2,            # don't insta-exit
+    GIVEBACK=0.40,              # exit if price gives back this fraction from peak
+    TIME_CAP_BARS=48,           # shorter by default than your 72
+    EMERGENCY_STOP_RET=-0.05,   # catastrophic stop in return space (e.g., -5%)
+):
+    """
+    Pure impulse-based exit:
+      - Start managing at event_ts + 1 bar
+      - Define impulse_score using RVOL * RangeZ
+      - After activation, track peak impulse + peak price return
+      - Exit when impulse stalls OR price gives back from peak OR time cap OR emergency stop
+    """
+    import numpy as np
+    import pandas as pd
+
+    df = df.sort_index()
+    start_ts = event_ts + pd.Timedelta(minutes=BAR_MIN)
+
+    if df.empty or (entry_ts not in df.index) or (start_ts not in df.index):
+        return None
+
+    loc0 = df.index.get_loc(start_ts)
+    max_loc = min(loc0 + int(H_MAX), len(df) - 1)
+
+    # Precompute impulse features on full df (then slice by loc)
+    vol = df["volume"].astype(float)
+    vol_ma = vol.rolling(int(VOL_MA)).mean()
+    rvol = vol / vol_ma
+
+    rng = (df["high"].astype(float) - df["low"].astype(float)) / df["close"].astype(float)
+    rng_ma = rng.rolling(int(RANGE_MA)).mean()
+    rng_std = rng.rolling(int(RANGE_MA)).std(ddof=0)
+    rng_z = (rng - rng_ma) / (rng_std.replace(0, np.nan))
+
+    # A smooth-ish impulse score (positive only)
+    impulse_score = (rvol.clip(lower=0) * rng_z.clip(lower=0)).replace([np.inf, -np.inf], np.nan)
+
+    # State
+    activated = False
+    peak_imp = -np.inf
+    peak_ret = 0.0
+    mfe = 0.0
+    mae = 0.0
+
+    exit_ts = None
+    exit_px = None
+    exit_reason = None
+
+    for loc in range(loc0, max_loc + 1):
+        ts = df.index[loc]
+        close = float(df["close"].iloc[loc])
+        ret = (close - entry_px) / entry_px
+
+        mfe = max(mfe, ret)
+        mae = min(mae, ret)
+
+        bars_since_start = loc - loc0
+
+        # Emergency stop (catastrophic)
+        if ret <= float(EMERGENCY_STOP_RET):
+            exit_ts, exit_px, exit_reason = ts, close, "IMPULSE_EMERGENCY_STOP"
+            break
+
+        imp = impulse_score.iloc[loc]
+        rv = rvol.iloc[loc]
+        rz = rng_z.iloc[loc]
+
+        # Activation gate: require "real impulse"
+        if (not activated):
+            if np.isfinite(imp) and np.isfinite(rv) and np.isfinite(rz):
+                if (rv >= float(ACTIVATE_RVOL)) and (rz >= float(ACTIVATE_RANGE_Z)):
+                    activated = True
+                    peak_imp = float(imp)
+                    peak_ret = float(mfe)
+            continue
+
+        # After activation, update peaks
+        if np.isfinite(imp):
+            peak_imp = max(peak_imp, float(imp))
+        peak_ret = max(peak_ret, float(mfe))
+
+        if bars_since_start < int(MIN_HOLD_BARS):
+            continue
+
+        # 1) Impulse stall exit (the key “shorten the window” rule)
+        if np.isfinite(imp) and np.isfinite(peak_imp) and peak_imp > 0:
+            if float(imp) <= float(STALL_FRAC) * float(peak_imp):
+                exit_ts, exit_px, exit_reason = ts, close, "IMPULSE_STALL"
+                break
+
+        # 2) Price giveback from peak (captures TRUMP-like fade)
+        if peak_ret > 0:
+            if ret <= (1.0 - float(GIVEBACK)) * float(peak_ret):
+                exit_ts, exit_px, exit_reason = ts, close, "IMPULSE_GIVEBACK"
+                break
+
+        # 3) Time cap
+        if bars_since_start >= int(TIME_CAP_BARS):
+            exit_ts, exit_px, exit_reason = ts, close, "IMPULSE_TIME_CAP"
+            break
+
+    if exit_ts is None:
+        exit_ts = df.index[max_loc]
+        exit_px = float(df["close"].iloc[max_loc])
+        exit_reason = "IMPULSE_END_OF_WINDOW"
+
+    ret = (exit_px - entry_px) / entry_px
+    ret_net = ret - 2 * FEE
+
+    return {
+        "exit_ts": exit_ts,
+        "exit_px": float(exit_px),
+        "ret": float(ret),
+        "ret_net": float(ret_net),
+        "mfe": float(mfe),
+        "mae": float(mae),
+        "exit_reason": str(exit_reason),
+        "trail_active": False,
+        # Helpful debug fields (optional)
+        "peak_impulse": float(peak_imp) if np.isfinite(peak_imp) else np.nan,
+        "peak_ret": float(peak_ret),
+        "ACTIVATE_RVOL": float(ACTIVATE_RVOL),
+        "ACTIVATE_RANGE_Z": float(ACTIVATE_RANGE_Z),
+        "STALL_FRAC": float(STALL_FRAC),
+        "GIVEBACK": float(GIVEBACK),
+        "TIME_CAP_BARS": int(TIME_CAP_BARS),
+    }
+
+
+def plot_trades_on_price(df, trades, title=""):
+    plt.figure(figsize=(12,4))
+    plt.plot(df.index, df["close"], label="close", alpha=0.8)
+
+    buys = trades["entry_ts"]
+    sells = trades["exit_ts"]
+
+    plt.scatter(buys, df.loc[buys]["close"], marker="^", color="green", s=60, label="entry")
+    plt.scatter(sells, df.loc[sells]["close"], marker="v", color="red", s=60, label="exit")
+
+    plt.legend()
+    plt.title(title)
+    plt.show()
+
+
+def find_pre_shock_entry_delayed(
+    df,
+    event_ts,
+    *,
+    PRE_BARS=240,          # how far back we look (bars)
+    RANGE_BARS=24,         # compression box length (bars)
+    MAX_LEAD_BARS=36,      # scan window inside PRE (bars)
+    ATR_N=14,
+    BODY_ATR_MULT=0.75,    # same as your old filter (body > 0.75*atr_pre)
+    BREAK_ATR_BUFFER=0.20, # require breakout clears level by buffer*atr_pre
+    CONFIRM_BARS=2,        # 2-bar close confirmation (delays entry)
+    RVOL_WIN=144,
+    RVOL_MIN=1.2,          # require volume expansion at entry (optional but recommended)
+    USE_RVOL=True,
+):
+    """
+    Like find_pre_shock_entry(), but delays entry using:
+      - breakout buffer (avoid tiny pokes)
+      - N-bar confirmation (avoid 1-bar fakes)
+      - optional RVOL filter (enter only when volume expands)
+    Returns same dict as before or None.
+    """
+    import numpy as np
+    import pandas as pd
+
+    if event_ts not in df.index:
+        loc = df.index.searchsorted(pd.Timestamp(event_ts), side="right") - 1
+        if loc < 0:
+            return None
+        event_ts = df.index[loc]
+
+    event_loc = df.index.get_loc(event_ts)
+    if event_loc < PRE_BARS + 5:
+        return None
+
+    pre = df.iloc[event_loc - PRE_BARS : event_loc].copy()
+
+    # ATR proxy used in your old logic
+    atr_pre = (pre["high"] - pre["low"]).mean()
+
+    # compression range = last RANGE_BARS in PRE
+    comp = pre.iloc[-RANGE_BARS:]
+    range_high = comp["high"].max()
+    range_low  = comp["low"].min()
+
+    # Scan last MAX_LEAD_BARS (closest to event)
+    scan = pre.iloc[-MAX_LEAD_BARS:].copy()
+
+    # Optional RVOL on scan window (needs some lookback)
+    if USE_RVOL:
+        vol_med = pre["volume"].rolling(RVOL_WIN).median()
+        scan["rvol"] = scan["volume"] / vol_med.reindex(scan.index)
+    else:
+        scan["rvol"] = np.nan
+
+    # breakout must clear by a buffer to avoid tiny pokes
+    up_level = range_high + BREAK_ATR_BUFFER * atr_pre
+    dn_level = range_low  - BREAK_ATR_BUFFER * atr_pre
+
+    idx = scan.index
+
+    for i in range(len(scan)):
+        ts = idx[i]
+        row = scan.loc[ts]
+
+        body = abs(row["close"] - row["open"])
+
+        # basic impulse candle requirement (same style as you had)
+        if not (body > BODY_ATR_MULT * atr_pre):
+            continue
+
+        # optional volume expansion requirement at entry bar
+        if USE_RVOL:
+            rvol = row["rvol"]
+            if not (np.isfinite(rvol) and rvol >= RVOL_MIN):
+                continue
+
+        # -------- LONG candidate --------
+        if row["close"] > up_level:
+            # confirmation: next CONFIRM_BARS-1 closes must also stay above up_level
+            ok = True
+            for j in range(1, CONFIRM_BARS):
+                if i + j >= len(scan):
+                    ok = False
+                    break
+                if scan.iloc[i + j]["close"] <= up_level:
+                    ok = False
+                    break
+
+            if ok:
+                entry_ts = idx[i + CONFIRM_BARS - 1]  # delayed entry on confirmation bar
+                entry_px = scan.loc[entry_ts, "close"]
+                return {"entry_ts": entry_ts, "direction": "long", "entry_price": entry_px}
+
+        # -------- SHORT candidate --------
+        if row["close"] < dn_level:
+            ok = True
+            for j in range(1, CONFIRM_BARS):
+                if i + j >= len(scan):
+                    ok = False
+                    break
+                if scan.iloc[i + j]["close"] >= dn_level:
+                    ok = False
+                    break
+
+            if ok:
+                entry_ts = idx[i + CONFIRM_BARS - 1]
+                entry_px = scan.loc[entry_ts, "close"]
+                return {"entry_ts": entry_ts, "direction": "short", "entry_price": entry_px}
+
+    return None
