@@ -1,0 +1,182 @@
+[
+  {
+    "id": "case_01",
+    "title": "Bitcoin rises above $100,000",
+    "summary": "Bitcoin gained 4% today.",
+    "expected": {
+      "scope": "usd_explicit",
+      "label": "positive"
+    }
+  },
+  {
+    "id": "case_02",
+    "title": "Bitcoin falls below $90,000",
+    "summary": "Bitcoin lost 5% today.",
+    "expected": {
+      "scope": "usd_explicit",
+      "label": "negative"
+    }
+  },
+  {
+    "id": "case_03",
+    "title": "Bitcoin holds steady at $88,000",
+    "summary": "Its dollar price was unchanged.",
+    "expected": {
+      "scope": "usd_explicit",
+      "label": "neutral"
+    }
+  },
+  {
+    "id": "case_04",
+    "title": "Bitcoin may drop to $70K before a rally",
+    "summary": "An analyst expects a correction first, then new highs later this year.",
+    "expected": {
+      "scope": "usd_explicit",
+      "label": "mixed"
+    }
+  },
+  {
+    "id": "case_05",
+    "title": "Bitcoin.com opens an office",
+    "summary": "The company expanded its customer support business.",
+    "expected": {
+      "scope": "unrelated",
+      "label": "uncertain"
+    }
+  },
+  {
+    "id": "case_06",
+    "title": "Bitcoin mining stocks rally",
+    "summary": "Three mining companies gained 12% on AI hosting contracts.",
+    "expected": {
+      "scope": "unrelated",
+      "label": "uncertain"
+    }
+  },
+  {
+    "id": "case_07",
+    "title": "XRP gains market share",
+    "summary": "XRP climbed the crypto rankings. Bitcoin was mentioned among other assets.",
+    "expected": {
+      "scope": "unrelated",
+      "label": "uncertain"
+    }
+  },
+  {
+    "id": "case_08",
+    "title": "Bitcoin dominance declines",
+    "summary": "Altcoins increased their share of total crypto market capitalization.",
+    "expected": {
+      "scope": "relative_only",
+      "label": "uncertain"
+    }
+  },
+  {
+    "id": "case_09",
+    "title": "ETH outperforms BTC",
+    "summary": "Ether gained against bitcoin. No dollar price direction was reported.",
+    "expected": {
+      "scope": "relative_only",
+      "label": "uncertain"
+    }
+  },
+  {
+    "id": "case_10",
+    "title": "Bitcoin steady while altcoins fall",
+    "summary": "Bitcoin was unchanged in USD; altcoins fell sharply.",
+    "expected": {
+      "scope": "usd_explicit",
+      "label": "neutral"
+    }
+  },
+  {
+    "id": "case_11",
+    "title": "Bitcoin ETF inflows increase",
+    "summary": "US spot bitcoin funds recorded net inflows of $300 million.",
+    "expected": {
+      "scope": "btc_general",
+      "label": "positive"
+    }
+  },
+  {
+    "id": "case_12",
+    "title": "Bitcoin ETF outflows accelerate",
+    "summary": "US spot bitcoin funds recorded net outflows of $300 million.",
+    "expected": {
+      "scope": "btc_general",
+      "label": "negative"
+    }
+  },
+  {
+    "id": "case_13",
+    "title": "Crypto ETFs draw $300 million",
+    "summary": "Combined bitcoin and ether flows were positive; the breakdown was unavailable.",
+    "expected": {
+      "scope": "btc_general",
+      "label": "uncertain"
+    }
+  },
+  {
+    "id": "case_14",
+    "title": "BitcoinOS token price rises",
+    "summary": "BOS rallied on changes to its token burn mechanism.",
+    "expected": {
+      "scope": "unrelated",
+      "label": "uncertain"
+    }
+  },
+  {
+    "id": "case_15",
+    "title": "Bitcoin wallet moves coins",
+    "summary": "A wallet transferred 20 BTC to another address. The purpose is unknown.",
+    "expected": {
+      "scope": "btc_general",
+      "label": "neutral"
+    }
+  },
+  {
+    "id": "case_16",
+    "title": "Analysts disagree about bitcoin",
+    "summary": "One expects a rally, another expects a decline over the same period.",
+    "expected": {
+      "scope": "btc_general",
+      "label": "mixed"
+    }
+  },
+  {
+    "id": "case_17",
+    "title": "Bitcoin outlook update",
+    "summary": "The analyst expects bitcoin to",
+    "expected": {
+      "scope": "btc_general",
+      "label": "uncertain"
+    }
+  },
+  {
+    "id": "case_18",
+    "title": "Merchant adopts bitcoin payments",
+    "summary": "The merchant now accepts BTC for its products.",
+    "expected": {
+      "scope": "btc_general",
+      "label": "positive"
+    }
+  },
+  {
+    "id": "case_19",
+    "title": "Bitcoin Cash gains 10%",
+    "summary": "BCH rose sharply; no BTC outlook was discussed.",
+    "expected": {
+      "scope": "unrelated",
+      "label": "uncertain"
+    }
+  },
+  {
+    "id": "case_20",
+    "title": "BTC rises to $100K as ETH outperforms",
+    "summary": "Bitcoin gained 3% in USD, while ether gained 5%.",
+    "expected": {
+      "scope": "usd_explicit",
+      "label": "positive"
+    }
+  }
+]
