@@ -294,6 +294,8 @@ def export(args):
         raise RuntimeError("results/manifest identity mismatch")
     outcomes = {row["url"]: dict(row) for row in connection.execute("SELECT * FROM outcomes")}
     connection.close()
+    if len(outcomes) != len(items):
+        raise RuntimeError(f"refusing final export: only {len(outcomes)}/{len(items)} inputs have outcomes")
     article_path, daily_path, summary_path = map(Path, (args.articles, args.daily, args.summary))
     for path in (article_path, daily_path, summary_path):
         if path.exists():
