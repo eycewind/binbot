@@ -1,0 +1,35 @@
+{
+  "command": "run_baseline_rebuild.py --db ../db/BTCUSDT_1m_52weeks.db --output-dir baseline_rebuild_results/frozen_v1",
+  "python": "3.11.11 (main, Dec 11 2024, 16:28:39) [GCC 11.2.0]",
+  "python_executable": "/home/ata/miniconda3/envs/ml-2/bin/python",
+  "platform": "Linux-5.15.0-139-generic-x86_64-with-glibc2.31",
+  "sklearn": "1.6.0",
+  "features": [
+    "return_1m",
+    "return_5m",
+    "return_10m",
+    "range_fraction",
+    "body_fraction",
+    "volume_log1p",
+    "volume_ratio_20",
+    "volatility_20"
+  ],
+  "target": "decimal open[t+11] / open[t+1] - 1",
+  "pipeline": "StandardScaler(train only) -> Ridge(alpha=1.0, fit_intercept=True)",
+  "model_entry_rule": "prediction > 0.002002002002001957",
+  "momentum_rule": "return_10m > 0.001",
+  "fee_rate_per_side": 0.001,
+  "slippage_rates_per_side": [
+    0.0,
+    0.0001,
+    0.0002
+  ],
+  "initial_equity_usdt": 10000.0,
+  "hashes": {
+    "input_database_sha256": "47339b89c90af161956df346665cce19a56c07473261f1b1c3815bb196a4de46",
+    "contract_sha256": "7506ad2ed2ca8b395786fe3f6a2745c96157af5e749d1b57c05bcabb3ccbae22",
+    "data_code_sha256": "0fb8ade6a328e8914e50565dfe8db34169ada8aeaec949c9aa70521450cdfc98",
+    "runner_code_sha256": "ac21aac6e48f8329e185339519c6dd22f56afa610ec589aea701d29edf8aec13",
+    "model_sha256": "c71bc41bb2802cd83b4bb70fe3b8b88a495d3d6b19718453f2726f7178c2996e"
+  }
+}

@@ -1,0 +1,297 @@
+{
+  "training_rows": 312469,
+  "training_target_mean": -1.0655184226307228e-05,
+  "model_break_even_decimal": 0.002002002002001957,
+  "fee_bps_per_side": 10.0,
+  "zero_slippage_is_optimistic": true,
+  "partitions": {
+    "validation": {
+      "rows": 105109,
+      "prediction_metrics": {
+        "ridge": {
+          "mae": 0.001173164409982808,
+          "rmse": 0.0017944022414015345
+        },
+        "training_mean": {
+          "mae": 0.0011724562147106706,
+          "rmse": 0.0017940727208229082
+        }
+      },
+      "strategies": {
+        "no_trade": {
+          "trade_count": 0,
+          "average_gross_return_per_trade": null,
+          "scenarios": {
+            "slippage_0bps_per_side": {
+              "return": 0.0,
+              "maximum_drawdown": 0.0,
+              "total_fees_usdt": 0.0,
+              "turnover_notional_usdt": 0.0,
+              "annualized_turnover": 0.0,
+              "exposure_fraction": 0.0,
+              "average_return_per_trade": null
+            },
+            "slippage_1bps_per_side": {
+              "return": 0.0,
+              "maximum_drawdown": 0.0,
+              "total_fees_usdt": 0.0,
+              "turnover_notional_usdt": 0.0,
+              "annualized_turnover": 0.0,
+              "exposure_fraction": 0.0,
+              "average_return_per_trade": null
+            },
+            "slippage_2bps_per_side": {
+              "return": 0.0,
+              "maximum_drawdown": 0.0,
+              "total_fees_usdt": 0.0,
+              "turnover_notional_usdt": 0.0,
+              "annualized_turnover": 0.0,
+              "exposure_fraction": 0.0,
+              "average_return_per_trade": null
+            }
+          },
+          "gross": {
+            "return": 0.0,
+            "maximum_drawdown": 0.0,
+            "total_fees_usdt": 0.0,
+            "turnover_notional_usdt": 0.0,
+            "annualized_turnover": 0.0,
+            "exposure_fraction": 0.0,
+            "average_return_per_trade": null
+          },
+          "average_net_return_per_trade": null
+        },
+        "momentum": {
+          "trade_count": 3832,
+          "average_gross_return_per_trade": -5.444998850944041e-05,
+          "scenarios": {
+            "slippage_0bps_per_side": {
+              "return": -0.9996221110577515,
+              "maximum_drawdown": -0.9996231364031976,
+              "total_fees_usdt": 9335.8274487234,
+              "turnover_notional_usdt": 9335827.44872345,
+              "annualized_turnover": 34138.572487926,
+              "exposure_fraction": 0.3645357686453577,
+              "average_return_per_trade": -0.002052343195325602
+            },
+            "slippage_1bps_per_side": {
+              "return": -0.9998244014635989,
+              "maximum_drawdown": -0.9998248428961948,
+              "total_fees_usdt": 8532.3668713232,
+              "turnover_notional_usdt": 8532366.871323239,
+              "annualized_turnover": 33784.0689297594,
+              "exposure_fraction": 0.3645357686453577,
+              "average_return_per_trade": -0.0022519127697290782
+            },
+            "slippage_2bps_per_side": {
+              "return": -0.999918402360942,
+              "maximum_drawdown": -0.9999185912069948,
+              "total_fees_usdt": 7857.081732029352,
+              "turnover_notional_usdt": 7857081.732029314,
+              "annualized_turnover": 33470.374103770344,
+              "exposure_fraction": 0.3645357686453577,
+              "average_return_per_trade": -0.0024514424381988564
+            }
+          },
+          "gross": {
+            "return": -0.19499569553856866,
+            "maximum_drawdown": -0.2239600899317966,
+            "total_fees_usdt": 0.0,
+            "turnover_notional_usdt": 64655276.07225371,
+            "annualized_turnover": 38199.918080468226,
+            "exposure_fraction": 0.3645357686453577,
+            "average_return_per_trade": -5.444998850943905e-05
+          },
+          "average_net_return_per_trade": -0.002052343195325602
+        },
+        "ridge": {
+          "trade_count": 2,
+          "average_gross_return_per_trade": 0.00413290391184884,
+          "scenarios": {
+            "slippage_0bps_per_side": {
+              "return": 0.004242542677816985,
+              "maximum_drawdown": -0.0034584258548603364,
+              "total_fees_usdt": 40.16319118246024,
+              "turnover_notional_usdt": 40163.191182460236,
+              "annualized_turnover": 20.02699128513579,
+              "exposure_fraction": 0.0001902587519025875,
+              "average_return_per_trade": 0.0021266443635734045
+            },
+            "slippage_1bps_per_side": {
+              "return": 0.0038409259881000413,
+              "maximum_drawdown": -0.0034584258548604474,
+              "total_fees_usdt": 40.15514725709227,
+              "turnover_notional_usdt": 40155.14725709226,
+              "annualized_turnover": 20.02803426688782,
+              "exposure_fraction": 0.0001902587519025875,
+              "average_return_per_trade": 0.0019262390752294856
+            },
+            "slippage_2bps_per_side": {
+              "return": 0.0034394699049067334,
+              "maximum_drawdown": -0.0034584258548603364,
+              "total_fees_usdt": 40.14710574398393,
+              "turnover_notional_usdt": 40147.10574398393,
+              "annualized_turnover": 20.029077108351217,
+              "exposure_fraction": 0.0001902587519025875,
+              "average_return_per_trade": 0.0017258738599287837
+            }
+          },
+          "gross": {
+            "return": 0.008267558855868051,
+            "maximum_drawdown": -0.0034584258548605584,
+            "total_fees_usdt": 0.0,
+            "turnover_notional_usdt": 40243.6404036049,
+            "annualized_turnover": 20.016492627174184,
+            "exposure_fraction": 0.0001902587519025875,
+            "average_return_per_trade": 0.00413290391184884
+          },
+          "average_net_return_per_trade": 0.0021266443635734045
+        }
+      }
+    },
+    "test": {
+      "rows": 105109,
+      "prediction_metrics": {
+        "ridge": {
+          "mae": 0.0009764893454858222,
+          "rmse": 0.001536710343320345
+        },
+        "training_mean": {
+          "mae": 0.0009752507416396577,
+          "rmse": 0.0015356834365228245
+        }
+      },
+      "strategies": {
+        "no_trade": {
+          "trade_count": 0,
+          "average_gross_return_per_trade": null,
+          "scenarios": {
+            "slippage_0bps_per_side": {
+              "return": 0.0,
+              "maximum_drawdown": 0.0,
+              "total_fees_usdt": 0.0,
+              "turnover_notional_usdt": 0.0,
+              "annualized_turnover": 0.0,
+              "exposure_fraction": 0.0,
+              "average_return_per_trade": null
+            },
+            "slippage_1bps_per_side": {
+              "return": 0.0,
+              "maximum_drawdown": 0.0,
+              "total_fees_usdt": 0.0,
+              "turnover_notional_usdt": 0.0,
+              "annualized_turnover": 0.0,
+              "exposure_fraction": 0.0,
+              "average_return_per_trade": null
+            },
+            "slippage_2bps_per_side": {
+              "return": 0.0,
+              "maximum_drawdown": 0.0,
+              "total_fees_usdt": 0.0,
+              "turnover_notional_usdt": 0.0,
+              "annualized_turnover": 0.0,
+              "exposure_fraction": 0.0,
+              "average_return_per_trade": null
+            }
+          },
+          "gross": {
+            "return": 0.0,
+            "maximum_drawdown": 0.0,
+            "total_fees_usdt": 0.0,
+            "turnover_notional_usdt": 0.0,
+            "annualized_turnover": 0.0,
+            "exposure_fraction": 0.0,
+            "average_return_per_trade": null
+          },
+          "average_net_return_per_trade": null
+        },
+        "momentum": {
+          "trade_count": 3315,
+          "average_gross_return_per_trade": 1.0970937021939368e-05,
+          "scenarios": {
+            "slippage_0bps_per_side": {
+              "return": -0.9986391165509501,
+              "maximum_drawdown": -0.9986391165509501,
+              "total_fees_usdt": 10138.579694388838,
+              "turnover_notional_usdt": 10138579.694389017,
+              "annualized_turnover": 29959.825581447905,
+              "exposure_fraction": 0.3153538812785388,
+              "average_return_per_trade": -0.0019870529809341486
+            },
+            "slippage_1bps_per_side": {
+              "return": -0.9992987325360787,
+              "maximum_drawdown": -0.9992987325360787,
+              "total_fees_usdt": 9193.216019427427,
+              "turnover_notional_usdt": 9193216.019427378,
+              "annualized_turnover": 29869.954862786984,
+              "exposure_fraction": 0.3153538812785388,
+              "average_return_per_trade": -0.002186635612074825
+            },
+            "slippage_2bps_per_side": {
+              "return": -0.9996386347047008,
+              "maximum_drawdown": -0.9996386347047008,
+              "total_fees_usdt": 8407.100555588602,
+              "turnover_notional_usdt": 8407100.555588573,
+              "annualized_turnover": 29822.232857558287,
+              "exposure_fraction": 0.3153538812785388,
+              "average_return_per_trade": -0.002386178334670986
+            }
+          },
+          "gross": {
+            "return": 0.030847227147685174,
+            "maximum_drawdown": -0.12545276896428748,
+            "total_fees_usdt": 0.0,
+            "turnover_notional_usdt": 71380993.8490261,
+            "annualized_turnover": 33506.54280627962,
+            "exposure_fraction": 0.3153538812785388,
+            "average_return_per_trade": 1.0970937021940974e-05
+          },
+          "average_net_return_per_trade": -0.0019870529809341486
+        },
+        "ridge": {
+          "trade_count": 0,
+          "average_gross_return_per_trade": null,
+          "scenarios": {
+            "slippage_0bps_per_side": {
+              "return": 0.0,
+              "maximum_drawdown": 0.0,
+              "total_fees_usdt": 0.0,
+              "turnover_notional_usdt": 0.0,
+              "annualized_turnover": 0.0,
+              "exposure_fraction": 0.0,
+              "average_return_per_trade": null
+            },
+            "slippage_1bps_per_side": {
+              "return": 0.0,
+              "maximum_drawdown": 0.0,
+              "total_fees_usdt": 0.0,
+              "turnover_notional_usdt": 0.0,
+              "annualized_turnover": 0.0,
+              "exposure_fraction": 0.0,
+              "average_return_per_trade": null
+            },
+            "slippage_2bps_per_side": {
+              "return": 0.0,
+              "maximum_drawdown": 0.0,
+              "total_fees_usdt": 0.0,
+              "turnover_notional_usdt": 0.0,
+              "annualized_turnover": 0.0,
+              "exposure_fraction": 0.0,
+              "average_return_per_trade": null
+            }
+          },
+          "gross": {
+            "return": 0.0,
+            "maximum_drawdown": 0.0,
+            "total_fees_usdt": 0.0,
+            "turnover_notional_usdt": 0.0,
+            "annualized_turnover": 0.0,
+            "exposure_fraction": 0.0,
+            "average_return_per_trade": null
+          },
+          "average_net_return_per_trade": null
+        }
+      }
+    }
+  }
+}
