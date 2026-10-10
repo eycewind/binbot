@@ -1,0 +1,245 @@
+{
+  "audited_input_sha256": {
+    "articles_csv": "96e0fd4cce14421f2cb3b69ebe74feec1e5f3b64671fc130b746357769bd4bbf",
+    "daily_csv": "68aec59edda8bd2bf2fdc7fd2913089c749986cb8e229441b2650ed2aa505064",
+    "results_sqlite": "3324751416d69d98901b8b6f6747a87d654ec5aeb92d182602a023f42586e920"
+  },
+  "daily": {
+    "extreme_scores": {
+      "negative_100": 31,
+      "negative_100_single_article": 21,
+      "positive_100": 90,
+      "positive_100_single_article": 43
+    },
+    "longest_missing_streak": {
+      "days": 4,
+      "end": "2025-11-29",
+      "start": "2025-11-26"
+    },
+    "missing_score_days": 62,
+    "monthly": {
+      "2025-01": {
+        "bitcoincom_usable_days": 18,
+        "calendar_days": 31,
+        "coindesk_usable_days": 14,
+        "missing_score_days": 9,
+        "pooled_usable_days": 22
+      },
+      "2025-02": {
+        "bitcoincom_usable_days": 23,
+        "calendar_days": 28,
+        "coindesk_usable_days": 12,
+        "missing_score_days": 5,
+        "pooled_usable_days": 23
+      },
+      "2025-03": {
+        "bitcoincom_usable_days": 18,
+        "calendar_days": 31,
+        "coindesk_usable_days": 14,
+        "missing_score_days": 7,
+        "pooled_usable_days": 24
+      },
+      "2025-04": {
+        "bitcoincom_usable_days": 22,
+        "calendar_days": 30,
+        "coindesk_usable_days": 11,
+        "missing_score_days": 7,
+        "pooled_usable_days": 23
+      },
+      "2025-05": {
+        "bitcoincom_usable_days": 28,
+        "calendar_days": 31,
+        "coindesk_usable_days": 15,
+        "missing_score_days": 3,
+        "pooled_usable_days": 28
+      },
+      "2025-06": {
+        "bitcoincom_usable_days": 22,
+        "calendar_days": 30,
+        "coindesk_usable_days": 14,
+        "missing_score_days": 4,
+        "pooled_usable_days": 26
+      },
+      "2025-07": {
+        "bitcoincom_usable_days": 23,
+        "calendar_days": 31,
+        "coindesk_usable_days": 15,
+        "missing_score_days": 5,
+        "pooled_usable_days": 26
+      },
+      "2025-08": {
+        "bitcoincom_usable_days": 22,
+        "calendar_days": 31,
+        "coindesk_usable_days": 14,
+        "missing_score_days": 6,
+        "pooled_usable_days": 25
+      },
+      "2025-09": {
+        "bitcoincom_usable_days": 23,
+        "calendar_days": 30,
+        "coindesk_usable_days": 14,
+        "missing_score_days": 3,
+        "pooled_usable_days": 27
+      },
+      "2025-10": {
+        "bitcoincom_usable_days": 27,
+        "calendar_days": 31,
+        "coindesk_usable_days": 10,
+        "missing_score_days": 2,
+        "pooled_usable_days": 29
+      },
+      "2025-11": {
+        "bitcoincom_usable_days": 22,
+        "calendar_days": 30,
+        "coindesk_usable_days": 13,
+        "missing_score_days": 7,
+        "pooled_usable_days": 23
+      },
+      "2025-12": {
+        "bitcoincom_usable_days": 24,
+        "calendar_days": 31,
+        "coindesk_usable_days": 14,
+        "missing_score_days": 4,
+        "pooled_usable_days": 27
+      }
+    },
+    "one_usable_article_days": 91,
+    "one_usable_publisher_days": 174,
+    "two_usable_publisher_days": 129,
+    "usable_count_distribution": {
+      "0": 62,
+      "1": 91,
+      "2": 103,
+      "3": 55,
+      "4": 32,
+      "5": 20,
+      "6": 2
+    },
+    "usable_days": 303,
+    "usable_zero_score_days": 68
+  },
+  "limitations": [
+    "Source selection contains only CoinDesk and Bitcoin.com coverage captured by the collector; it is not a complete news census.",
+    "Deduplication collapses exact normalized same-day headlines only; paraphrases and shared underlying events remain.",
+    "Only collected headline and publisher summary text is classified.",
+    "Retrospectively collected text is not point-in-time safe; absent modification metadata does not prove no revision.",
+    "Nominal D+1 00:00 UTC availability is an unverified research assumption."
+  ],
+  "publishers": {
+    "by_source": {
+      "bitcoincom": {
+        "input_articles": 559,
+        "labels": {
+          "excluded": 55,
+          "failed_unscored": 0,
+          "mixed": 21,
+          "negative": 96,
+          "neutral": 103,
+          "positive": 276,
+          "uncertain": 8
+        },
+        "overlap_daily_score_mean": 34.9225,
+        "overlap_daily_score_median": 50.0,
+        "usable_articles": 496
+      },
+      "coindesk": {
+        "input_articles": 250,
+        "labels": {
+          "excluded": 37,
+          "failed_unscored": 0,
+          "mixed": 10,
+          "negative": 64,
+          "neutral": 36,
+          "positive": 96,
+          "uncertain": 7
+        },
+        "overlap_daily_score_mean": 15.3101,
+        "overlap_daily_score_median": 0.0,
+        "usable_articles": 206
+      }
+    },
+    "count_relation_on_overlap": {
+      "bitcoincom_more": 56,
+      "coindesk_more": 15,
+      "equal": 58
+    },
+    "equal_publisher_daily_mean_on_overlap": 25.1163,
+    "overlap_usable_dates": 129,
+    "pooled_closer_to_higher_volume_publisher_dates": 58,
+    "pooled_daily_mean_on_overlap": 26.6667,
+    "pooled_minus_equal_publisher_mean_abs": 8.7209,
+    "publisher_score_mean_absolute_difference": 73.6176,
+    "sign_agreement_dates": 60,
+    "sign_disagreement_dates": 69,
+    "sign_pair_counts_first_bitcoincom_second_coindesk": {
+      "+0/+0": 6,
+      "+0/+1": 9,
+      "+0/-1": 8,
+      "+1/+0": 16,
+      "+1/+1": 42,
+      "+1/-1": 22,
+      "-1/+0": 5,
+      "-1/+1": 9,
+      "-1/-1": 12
+    },
+    "strict_opposite_sign_dates": 31,
+    "unequal_counts_and_scores_dates": 58
+  },
+  "reconciliation": {
+    "article_distribution": {
+      "excluded": 92,
+      "mixed": 31,
+      "negative": 160,
+      "neutral": 139,
+      "positive": 372,
+      "uncertain": 15
+    },
+    "articles": 809,
+    "consecutive_2025": true,
+    "daily_field_mismatches": [],
+    "daily_rows": 365,
+    "expected_distribution": {
+      "excluded": 92,
+      "failed_unscored": 0,
+      "mixed": 31,
+      "negative": 160,
+      "neutral": 139,
+      "positive": 372,
+      "uncertain": 15
+    },
+    "expected_distribution_matches": true,
+    "outcomes": {
+      "success": 809
+    },
+    "unique_dates": 365,
+    "usable_articles": 702
+  },
+  "run_identity": {
+    "actual": "7c2ad3400408cce53c1d0db4cc687350773b43058144d9163a8bbc1cf9701672",
+    "articles_hash": "4e6afe42fbe3771ab1c8629ea01fa8fe8207914bbecc598ac891e7fff5ec0dc6",
+    "expected": "7c2ad3400408cce53c1d0db4cc687350773b43058144d9163a8bbc1cf9701672",
+    "matches": true,
+    "model": "qwen3.5:9b",
+    "model_digest": "56671c2ab9385f9cfcb404638e32cd62d88e3501d44822208363c010179a3c90"
+  },
+  "timestamps": {
+    "collection_delay_days_max": 645.345,
+    "collection_delay_days_median": 462.895,
+    "invalid": [],
+    "max_modification_delay_days": 309.071,
+    "median_modification_delay_days": 0.117,
+    "missing": {
+      "modified": 67
+    },
+    "modified_1_to_7_days_after": 11,
+    "modified_31_to_180_days_after": 1,
+    "modified_8_to_30_days_after": 5,
+    "modified_after_nominal_next_day_utc": 36,
+    "modified_after_publication": 211,
+    "modified_before_publication": 19,
+    "modified_equal_to_publication": 512,
+    "modified_next_utc_day_but_under_24_hours_after": 18,
+    "modified_over_180_days_after": 1,
+    "modified_same_utc_day_after_publication": 175
+  }
+}

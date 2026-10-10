@@ -1,0 +1,390 @@
+{
+  "article_count": 809,
+  "availability_assumption": "Nominal next-day UTC availability is a research assumption, not verified historical availability.",
+  "days_with_no_usable_articles": 62,
+  "days_with_one_usable_article": 91,
+  "days_with_usable": 303,
+  "distribution_after_headline_dedup": {
+    "duplicate_headline": 0,
+    "excluded": 92,
+    "failed_unscored": 0,
+    "mixed": 31,
+    "negative": 160,
+    "neutral": 139,
+    "positive": 372,
+    "uncertain": 15
+  },
+  "missing_or_invalid_timestamps": [
+    {
+      "error": "missing",
+      "field": "modified",
+      "url": "https://www.coindesk.com/business/2025/03/31/iren-calling-off-bitcoin-mining-expansion-in-favor-of-ai-data-centers"
+    },
+    {
+      "error": "missing",
+      "field": "modified",
+      "url": "https://www.coindesk.com/business/2025/06/25/gamestop-has-another-27b-in-bitcoin-buying-power-after-450m-greenshoe-exercise"
+    },
+    {
+      "error": "missing",
+      "field": "modified",
+      "url": "https://www.coindesk.com/business/2025/07/08/jack-mallers-how-we-started-our-bitcoin-treasury-company"
+    },
+    {
+      "error": "missing",
+      "field": "modified",
+      "url": "https://www.coindesk.com/business/2025/07/15/bitwise-adds-proof-of-reserves-for-bitcoin-ether-etfs"
+    },
+    {
+      "error": "missing",
+      "field": "modified",
+      "url": "https://www.coindesk.com/business/2025/09/15/paypal-adding-crypto-to-peer-to-peer-payments-allowing-direct-transfer-of-btc-eth-others"
+    },
+    {
+      "error": "missing",
+      "field": "modified",
+      "url": "https://www.coindesk.com/business/2025/10/21/bitcoinos-raises-usd10m-to-expand-institutional-btcfi-capabilities"
+    },
+    {
+      "error": "missing",
+      "field": "modified",
+      "url": "https://www.coindesk.com/business/2025/11/03/hive-digital-s-mining-capacity-hits-23-eh-s-as-bitcoin-output-funds-ai-shift"
+    },
+    {
+      "error": "missing",
+      "field": "modified",
+      "url": "https://www.coindesk.com/business/2025/11/14/trump-family-linked-american-bitcoin-posts-q3-profit"
+    },
+    {
+      "error": "missing",
+      "field": "modified",
+      "url": "https://www.coindesk.com/business/2025/12/29/sberbank-issues-russia-s-first-crypto-backed-loan-to-bitcoin-miner-intelion-data"
+    },
+    {
+      "error": "missing",
+      "field": "modified",
+      "url": "https://www.coindesk.com/markets/2025/01/02/xrp-rockets-11-as-bitcoin-starts-new-year-with-bullish-bang"
+    },
+    {
+      "error": "missing",
+      "field": "modified",
+      "url": "https://www.coindesk.com/markets/2025/01/09/bitcoin-etfs-suffer-582-m-net-outflow-second-highest-tally-ever"
+    },
+    {
+      "error": "missing",
+      "field": "modified",
+      "url": "https://www.coindesk.com/markets/2025/01/10/bitcoin-data-indicates-ripe-buying-period-as-btc-nears-95-k"
+    },
+    {
+      "error": "missing",
+      "field": "modified",
+      "url": "https://www.coindesk.com/markets/2025/01/10/bitcoin-registers-14-green-hourly-candles-longest-streak-since-2017"
+    },
+    {
+      "error": "missing",
+      "field": "modified",
+      "url": "https://www.coindesk.com/markets/2025/01/14/is-bitcoin-bottom-in-btcs-price-action-is-inverse-of-december-peak-above-108-k"
+    },
+    {
+      "error": "missing",
+      "field": "modified",
+      "url": "https://www.coindesk.com/markets/2025/01/17/bitcoin-snaps-downtrend-hits-105-k-as-anticipation-builds-for-trumps-inauguration"
+    },
+    {
+      "error": "missing",
+      "field": "modified",
+      "url": "https://www.coindesk.com/markets/2025/01/21/crypto-ai-tokens-soar-as-bitcoin-awaits-trump-policies-below-record-prices"
+    },
+    {
+      "error": "missing",
+      "field": "modified",
+      "url": "https://www.coindesk.com/markets/2025/01/23/bitcoin-is-like-coiled-spring-nearing-burst-of-price-volatility-key-indicator-suggests"
+    },
+    {
+      "error": "missing",
+      "field": "modified",
+      "url": "https://www.coindesk.com/markets/2025/02/03/microstrategy-pauses-weekly-bitcoin-purchases-ahead-of-earnings"
+    },
+    {
+      "error": "missing",
+      "field": "modified",
+      "url": "https://www.coindesk.com/markets/2025/02/04/semler-scientific-buys-additional-871-btc-for-usd88-5m"
+    },
+    {
+      "error": "missing",
+      "field": "modified",
+      "url": "https://www.coindesk.com/markets/2025/02/06/trump-s-aim-to-lower-the-10-year-yield-and-its-implications-for-bitcoin"
+    },
+    {
+      "error": "missing",
+      "field": "modified",
+      "url": "https://www.coindesk.com/markets/2025/02/18/bitcoin-focused-metaplanet-to-spit-stock-10-1-after-3-900-price-surge"
+    },
+    {
+      "error": "missing",
+      "field": "modified",
+      "url": "https://www.coindesk.com/markets/2025/02/18/u-s-listed-bitcoin-miners-accounted-for-29-of-global-hashrate-in-february-jpmorgan"
+    },
+    {
+      "error": "missing",
+      "field": "modified",
+      "url": "https://www.coindesk.com/markets/2025/02/25/bullish-crypto-bets-lose-usd1-2b-as-bitcoin-fumbles-to-under-usd89k-xrp-down-14"
+    },
+    {
+      "error": "missing",
+      "field": "modified",
+      "url": "https://www.coindesk.com/markets/2025/03/15/new-canadian-p-m-carney-closes-gap-on-polymarket-with-btc-friendly-poilievre"
+    },
+    {
+      "error": "missing",
+      "field": "modified",
+      "url": "https://www.coindesk.com/markets/2025/03/25/defunct-exchange-mt-gox-moves-usd1b-in-bitcoin-to-two-wallets"
+    },
+    {
+      "error": "missing",
+      "field": "modified",
+      "url": "https://www.coindesk.com/markets/2025/04/02/vaneck-eyes-bnb-etf-launch-after-btc-eth-product-success"
+    },
+    {
+      "error": "missing",
+      "field": "modified",
+      "url": "https://www.coindesk.com/markets/2025/04/23/bitcoin-becomes-fifth-largest-global-asset-surpasses-google-s-market-cap"
+    },
+    {
+      "error": "missing",
+      "field": "modified",
+      "url": "https://www.coindesk.com/markets/2025/04/25/semler-scientific-pushes-bitcoin-stack-to-over-3-300-btc-with-usd10m-buy"
+    },
+    {
+      "error": "missing",
+      "field": "modified",
+      "url": "https://www.coindesk.com/markets/2025/05/01/bitcoin-tops-97k-strategy-hits-2025-high-ahead-of-earnings-amid-capital-raise-speculation"
+    },
+    {
+      "error": "missing",
+      "field": "modified",
+      "url": "https://www.coindesk.com/markets/2025/05/12/bitcoin-falls-below-102k-easing-of-tariff-risk-could-see-more-underperformance"
+    },
+    {
+      "error": "missing",
+      "field": "modified",
+      "url": "https://www.coindesk.com/markets/2025/05/15/bitcoin-strategy-confirm-concurrent-bull-cross-strengthening-uptrend-signal-technical-analysis"
+    },
+    {
+      "error": "missing",
+      "field": "modified",
+      "url": "https://www.coindesk.com/markets/2025/05/21/these-six-charts-explain-why-bitcoin-s-recent-move-to-over-usd100k-may-be-more-durable-than-january-s-run"
+    },
+    {
+      "error": "missing",
+      "field": "modified",
+      "url": "https://www.coindesk.com/markets/2025/05/25/bitcoin-drops-below-usd107-5k-as-trump-tariff-threat-triggers-crypto-sell-off"
+    },
+    {
+      "error": "missing",
+      "field": "modified",
+      "url": "https://www.coindesk.com/markets/2025/06/04/bitfufu-hits-record-341-ehs-hashrate-as-bitcoin-production-surges-in-may"
+    },
+    {
+      "error": "missing",
+      "field": "modified",
+      "url": "https://www.coindesk.com/markets/2025/06/13/bitcoin-bounces-to-106k-after-iran-israel-jitters-but-analysts-warn-of-deeper-pullback"
+    },
+    {
+      "error": "missing",
+      "field": "modified",
+      "url": "https://www.coindesk.com/markets/2025/06/16/btc-tops-108k-on-jpmorgan-crypto-filing-xrp-rallies-on-etf-news"
+    },
+    {
+      "error": "missing",
+      "field": "modified",
+      "url": "https://www.coindesk.com/markets/2025/06/21/bitcoin-falls-below-usd104k-as-retail-investor-sentiment-returns-to-liberation-day-levels"
+    },
+    {
+      "error": "missing",
+      "field": "modified",
+      "url": "https://www.coindesk.com/markets/2025/06/23/bitcoin-bounces-after-war-driven-dip-usd98-2k-emerges-as-key-level-to-maintain-bullish-momentum"
+    },
+    {
+      "error": "missing",
+      "field": "modified",
+      "url": "https://www.coindesk.com/markets/2025/06/23/trump-media-share-buyback-to-be-funded-separately-from-btc-treasury-strategy"
+    },
+    {
+      "error": "missing",
+      "field": "modified",
+      "url": "https://www.coindesk.com/markets/2025/06/24/nasdaq-futures-chalk-out-golden-cross-near-record-high-offering-bullish-cues-to-bitcoin"
+    },
+    {
+      "error": "missing",
+      "field": "modified",
+      "url": "https://www.coindesk.com/markets/2025/06/30/litecoin-slips-below-86-as-resistance-holds-traders-watch-bitcoin-dominance"
+    },
+    {
+      "error": "missing",
+      "field": "modified",
+      "url": "https://www.coindesk.com/markets/2025/07/16/cantor-equity-partners-1-gains-25-on-35b-bitcoin-deal-with-adam-back"
+    },
+    {
+      "error": "missing",
+      "field": "modified",
+      "url": "https://www.coindesk.com/markets/2025/08/06/bitcoin-asset-manager-parataxis-to-go-public-in-usd400m-spac-deal-backed-by-silverbox"
+    },
+    {
+      "error": "missing",
+      "field": "modified",
+      "url": "https://www.coindesk.com/markets/2025/08/08/asia-morning-briefing-btc-mining-industry-not-worried-about-new-round-of-trump-tariffs"
+    },
+    {
+      "error": "missing",
+      "field": "modified",
+      "url": "https://www.coindesk.com/markets/2025/08/12/bitcoin-miner-mara-steps-into-hpc-with-majority-stake-in-edf-subsidiary-h-c-wainwright"
+    },
+    {
+      "error": "missing",
+      "field": "modified",
+      "url": "https://www.coindesk.com/markets/2025/08/15/digital-asset-treasury-firms-plunge-as-bitcoin-tumbles-below-usd117k-eth-slides-to-usd4-4k"
+    },
+    {
+      "error": "missing",
+      "field": "modified",
+      "url": "https://www.coindesk.com/markets/2025/08/27/nvidia-earnings-loom-large-with-bitcoin-traders-eyeying-correlation"
+    },
+    {
+      "error": "missing",
+      "field": "modified",
+      "url": "https://www.coindesk.com/markets/2025/09/02/bitcoin-network-hashrate-returned-to-all-time-highs-in-august-jpmorgan"
+    },
+    {
+      "error": "missing",
+      "field": "modified",
+      "url": "https://www.coindesk.com/markets/2025/09/04/bitcoin-traders-brace-for-nfp-shock-with-hedging-plays"
+    },
+    {
+      "error": "missing",
+      "field": "modified",
+      "url": "https://www.coindesk.com/markets/2025/09/23/crypto-market-today-og-astr-surge-as-bitcoin-defends-usd112k"
+    },
+    {
+      "error": "missing",
+      "field": "modified",
+      "url": "https://www.coindesk.com/markets/2025/10/17/non-productive-gold-zooms-to-usd30t-market-cap-leaving-bitcoin-nvidia-apple-google-far-behind"
+    },
+    {
+      "error": "missing",
+      "field": "modified",
+      "url": "https://www.coindesk.com/markets/2025/10/20/cleanspark-joins-ai-rush-in-expansion-beyond-bitcoin-mining"
+    },
+    {
+      "error": "missing",
+      "field": "modified",
+      "url": "https://www.coindesk.com/markets/2025/10/20/japan-considers-allowing-banks-to-hold-digital-assets-such-as-bitcoin-report"
+    },
+    {
+      "error": "missing",
+      "field": "modified",
+      "url": "https://www.coindesk.com/markets/2025/10/29/bitcoin-ether-brace-for-usd17b-options-expiry-amid-fed-meeting-tech-company-earnings"
+    },
+    {
+      "error": "missing",
+      "field": "modified",
+      "url": "https://www.coindesk.com/markets/2025/10/31/asia-morning-briefing-bitcoin-trades-at-usd109k-as-u-s-etf-demand-fades-and-powell-s-hawkish-tone-hits-risk-assets"
+    },
+    {
+      "error": "missing",
+      "field": "modified",
+      "url": "https://www.coindesk.com/markets/2025/11/05/bitcoin-at-make-or-break-level-as-china-suspends-24-tariff-on-u-s-goods"
+    },
+    {
+      "error": "missing",
+      "field": "modified",
+      "url": "https://www.coindesk.com/markets/2025/11/09/bitcoin-s-usd100k-question-here-s-why-btc-may-surge-this-week"
+    },
+    {
+      "error": "missing",
+      "field": "modified",
+      "url": "https://www.coindesk.com/markets/2025/11/11/bitcoin-s-usd588b-range-masks-market-vulnerabilities-10x-research"
+    },
+    {
+      "error": "missing",
+      "field": "modified",
+      "url": "https://www.coindesk.com/markets/2025/11/20/bitcoin-sell-off-led-by-mid-cycle-wallets-while-long-term-whales-hold-firm-vaneck"
+    },
+    {
+      "error": "missing",
+      "field": "modified",
+      "url": "https://www.coindesk.com/markets/2025/11/25/crypto-markets-today-bitcoin-leads-rebound-as-altcoins-surge-despite-broader-downtrend"
+    },
+    {
+      "error": "missing",
+      "field": "modified",
+      "url": "https://www.coindesk.com/markets/2025/12/02/ibit-among-most-traded-etfs-as-bitcoin-surges-mining-stocks-sink"
+    },
+    {
+      "error": "missing",
+      "field": "modified",
+      "url": "https://www.coindesk.com/markets/2025/12/17/bnb-drops-nearly-3-to-as-bitcoin-whipsaw-and-tech-selloff-hit-crypto-market"
+    },
+    {
+      "error": "missing",
+      "field": "modified",
+      "url": "https://www.coindesk.com/markets/2025/12/22/cme-loses-top-spot-to-binance-in-bitcoin-futures-open-interest-as-institutional-demand-wanes"
+    },
+    {
+      "error": "missing",
+      "field": "modified",
+      "url": "https://www.coindesk.com/news-analysis/2025/02/28/weekly-recap-bitcoin-s-tumble-and-the-sec-s-retreat"
+    },
+    {
+      "error": "missing",
+      "field": "modified",
+      "url": "https://www.coindesk.com/policy/2025/07/03/crypto-exchange-coinone-wins-south-korean-court-battle-over-doubled-bitcoin-withdrawals"
+    },
+    {
+      "error": "missing",
+      "field": "modified",
+      "url": "https://www.coindesk.com/tech/2025/04/23/bitcoin-rollup-citrea-deploys-bridge-to-tackle-collateral-bottleneck-of-using-btc-in-defi"
+    },
+    {
+      "error": "missing",
+      "field": "modified",
+      "url": "https://www.coindesk.com/tech/2025/05/22/what-you-didnt-know-about-laszlo-hanyecz-the-bitcoin-pizza-day-legend"
+    }
+  ],
+  "modified_timestamp_present": 742,
+  "outcome_count": 809,
+  "point_in_time_warning": "Retrospectively collected current text is not point-in-time safe.",
+  "publisher_distribution": {
+    "bitcoincom": {
+      "duplicate_headline": 0,
+      "excluded": 55,
+      "failed_unscored": 0,
+      "mixed": 21,
+      "negative": 96,
+      "neutral": 103,
+      "positive": 276,
+      "uncertain": 8
+    },
+    "coindesk": {
+      "duplicate_headline": 0,
+      "excluded": 37,
+      "failed_unscored": 0,
+      "mixed": 10,
+      "negative": 64,
+      "neutral": 36,
+      "positive": 96,
+      "uncertain": 7
+    }
+  },
+  "publisher_input_articles": {
+    "bitcoincom": 559,
+    "coindesk": 250
+  },
+  "publisher_usable_articles": {
+    "bitcoincom": 496,
+    "coindesk": 206
+  },
+  "revisions_modified_differs_from_published": 230,
+  "run_id": "7c2ad3400408cce53c1d0db4cc687350773b43058144d9163a8bbc1cf9701672",
+  "unreconciled": 0
+}
