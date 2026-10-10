@@ -2,6 +2,8 @@
 
 The selection and reference labels were committed in `d2157aba` before this inference run. The references are agent-reviewed labels, not independently established human ground truth. No prompt or label was changed after viewing these outputs.
 
+> **Reporting audit:** [AUDIT_V3_REPORT.md](AUDIT_V3_REPORT.md) supplies the unambiguous-only denominators, separates acceptable per-field sets from complete-tuple agreement, enumerates reference-excluded cases, and derives disagreement impact from the implemented daily aggregation logic. Frozen references and model outputs are unchanged.
+
 ## Run and denominators
 
 - Run ID: `3013ca1fb65ce1a0c7ec8fef7ebc813cbe8640fe421eecb3a9737f22c20dc8dc`
