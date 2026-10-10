@@ -1,0 +1,66 @@
+[
+  {
+    "id": "target_01_passing_mention",
+    "title": "XRP climbs the rankings",
+    "summary": "The report mentions bitcoin among several digital assets but makes no claim about it.",
+    "expected": [{"scope": "unrelated", "label": "uncertain", "horizon": "current_or_past"}]
+  },
+  {
+    "id": "target_02_analogy",
+    "title": "Litecoin, often called silver to bitcoin's gold, rises 12%",
+    "summary": "The reported move concerns litecoin.",
+    "expected": [{"scope": "unrelated", "label": "uncertain", "horizon": "current_or_past"}]
+  },
+  {
+    "id": "target_03_steady_usd",
+    "title": "Bitcoin is unchanged in USD while altcoins fall",
+    "summary": "BTC held steady in dollar terms today.",
+    "expected": [{"scope": "usd_explicit", "label": "neutral", "horizon": "current_or_past"}]
+  },
+  {
+    "id": "target_04_price_target",
+    "title": "Analyst sees bitcoin reaching $100K",
+    "summary": "The analyst expects BTC to reach that target this year.",
+    "expected": [{"scope": "usd_explicit", "label": "positive", "horizon": "forward"}]
+  },
+  {
+    "id": "target_05_combined_flows",
+    "title": "Bitcoin and ether funds draw $400 million",
+    "summary": "The combined inflow was positive, but no per-asset breakdown was published.",
+    "expected": [{"scope": "btc_general", "label": "uncertain", "horizon": "current_or_past"}]
+  },
+  {
+    "id": "target_06_completed_launch",
+    "title": "Bitcoin payments network launches",
+    "summary": "The company launched the service yesterday, expanding access to BTC payments.",
+    "expected": [{"scope": "btc_general", "label": "positive", "horizon": "current_or_past"}]
+  },
+  {
+    "id": "target_07_current_climb",
+    "title": "Bitcoin climbs after policy announcement",
+    "summary": "BTC rose following the announcement today.",
+    "expected": [{"scope": "btc_general", "label": "positive", "horizon": "current_or_past"}]
+  },
+  {
+    "id": "target_08_completed_drop",
+    "title": "Bitcoin and ether drop sharply",
+    "summary": "Bitcoin fell 8% and ether fell 10% on Monday.",
+    "expected": [{"scope": "btc_general", "label": "negative", "horizon": "current_or_past"}]
+  },
+  {
+    "id": "target_09_mixed_concession",
+    "title": "Strong bitcoin demand may not sustain the rally",
+    "summary": "Demand remains strong, but an analyst expects the bitcoin rally to fade next week.",
+    "expected": [{"scope": "btc_general", "label": "mixed", "horizon": "both"}]
+  },
+  {
+    "id": "target_10_timing_ambiguous",
+    "title": "Bitcoin adoption plan advances",
+    "summary": "Lawmakers consider a proposal that could expand access to bitcoin.",
+    "expected": [
+      {"scope": "btc_general", "label": "positive", "horizon": "forward"},
+      {"scope": "btc_general", "label": "uncertain", "horizon": "forward"}
+    ],
+    "ambiguity": "A concrete proposal supports a forward adoption reading, but 'could' leaves implementation and actual access uncertain."
+  }
+]
