@@ -1,0 +1,53 @@
+Review the completed frozen v3 sentiment exports. Activate and verify binbot.
+
+No inference, collection, classifier tuning, model retraining or trading
+backtest in this step. Preserve existing inputs and outputs.
+
+Expected completed run:
+- 809 reconciled articles, zero failures
+- 702 usable: 372 positive, 160 negative, 139 neutral, 31 mixed
+- 92 excluded, 15 uncertain
+- 303 usable days, 62 missing-score days
+- 91 days with exactly one usable article
+Verify these against the actual exports, not just the printed summary.
+
+1. Locate exports using full_v3_baseline.py and its runbook.
+   Check run identity and reconcile article-level results with daily
+   and per-publisher counts. Verify 365 unique consecutive UTC dates.
+
+2. Audit daily sentiment:
+   - Recompute scores using the documented formula and deduplication.
+   - Confirm missing is distinct from neutral zero.
+   - Report monthly coverage, longest missing-day streak, and distribution
+     of usable article counts.
+   - Count days with one versus both usable publishers.
+   - Quantify extreme scores (+100/-100), especially single-article days.
+
+3. Compare publishers:
+   - Label distributions and daily scores on overlapping usable dates.
+   - Sign disagreement, including counts of dates being compared.
+   - Show how article-count imbalance affects the pooled score.
+   Do not interpret publisher differences alone as model error.
+
+4. Inspect timestamp limitations:
+   - Missing modification timestamps.
+   - Modification after publication and after nominal next-day availability.
+   - Distinguish same-day edits from much later revisions.
+   - Do not treat absent modification timestamps as proof of no revisions.
+   - Do not call the dataset point-in-time safe.
+
+5. Produce a compact report and diagnostic plots:
+   - Daily sentiment with missing dates shown as gaps.
+   - Daily usable article counts by publisher.
+   - Monthly usable-day coverage.
+   Use separate panels for scores and counts.
+   Describe source-selection and headline-only deduplication limitations.
+
+6. Document the proposed future intraday join:
+   Day D sentiment is nominally available from D+1 00:00 UTC.
+   Preserve score, counts, publisher coverage and missingness separately.
+   Do not forward-fill across missing days or join to trading data yet.
+   This timing is a research assumption, not verified historical availability.
+
+Write the report and reproducible analysis script, commit coherent changes,
+and return the main findings plus artifact paths. Avoid rerunning inference.

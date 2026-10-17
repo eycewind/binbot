@@ -1,0 +1,24 @@
+Audit the frozen v3 evaluation report without changing the prompt,
+reference labels, or model outputs. No inference or full rescore.
+
+1. Explain how the six ambiguous references enter each metric.
+   Report unambiguous-only metrics, with explicit denominators.
+   If acceptable label sets were pre-registered, report agreement with
+   those sets separately.
+
+2. Show the five reference-excluded cases, their model classifications,
+   and exclusion reasons. Confirm the three reported false inclusions.
+
+3. Verify the claim that both targeted-regression failures have no daily
+   impact, using the actual aggregation logic—not scope names alone.
+
+4. For each substantive disagreement, show its reference and model
+   contributions to the daily numerator and denominator. Remember that
+   false-neutral inclusions can dilute the daily score.
+
+5. Explain why the previous run reported 19 tests and this run seven.
+   Check test discovery and run the complete applicable offline suite
+   under binbot.
+
+Commit the reporting corrections and return a concise audit summary.
+Preserve all frozen evaluation artifacts.

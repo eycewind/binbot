@@ -1,0 +1,24 @@
+{
+  "checked_at": "2026-10-09T01:48:57.817741+00:00",
+  "article_checks": [
+    {
+      "url": "https://www.coindesk.com/markets/2025/12/31/bitcoin-ether-drop-more-than-22-in-q4-as-december-santa-rally-fizzles",
+      "status": "metadata_extracted",
+      "published": "2025-12-31T05:31:18.157000+00:00",
+      "modified": "2025-12-31T05:35:50.532Z",
+      "headline_chars": 82,
+      "summary_chars": 160
+    },
+    {
+      "url": "https://news.bitcoin.com/bitcoin-price-watch-bulls-wrestle-for-control-at-118-5k-resistance/",
+      "status": "metadata_extracted",
+      "published": "2025-07-30T12:45:28+00:00",
+      "modified": "2025-07-30T12:45:28+00:00",
+      "headline_chars": 68,
+      "summary_chars": 135
+    }
+  ],
+  "sentiment_scoring": "not run; requires a locally installed Ollama model",
+  "full_year_coverage": "not established",
+  "collector_rows_verified": 2
+}

@@ -1,0 +1,1016 @@
+PLAN {"attempts": 1000, "source_month_hints": {"bitcoincom/2025-01": 38, "bitcoincom/2025-02": 38, "bitcoincom/2025-03": 38, "bitcoincom/2025-04": 39, "bitcoincom/2025-05": 39, "bitcoincom/2025-06": 39, "bitcoincom/2025-07": 39, "bitcoincom/2025-08": 39, "bitcoincom/2025-09": 39, "bitcoincom/2025-10": 38, "bitcoincom/2025-11": 38, "bitcoincom/2025-12": 38, "bitcoincom/unknown": 38, "coindesk/2025-01": 42, "coindesk/2025-02": 42, "coindesk/2025-03": 42, "coindesk/2025-04": 42, "coindesk/2025-05": 42, "coindesk/2025-06": 43, "coindesk/2025-07": 42, "coindesk/2025-08": 42, "coindesk/2025-09": 42, "coindesk/2025-10": 41, "coindesk/2025-11": 40, "coindesk/2025-12": 40}, "sources": {"bitcoincom": 500, "coindesk": 500}}
+Months are scheduling hints, not verified publication dates. Unknown dates get a turn.
+progress {"saved": 1}
+progress {"saved": 2}
+progress {"saved": 3}
+progress {"saved": 4}
+progress {"saved": 5}
+progress {"saved": 6}
+progress {"saved": 7}
+progress {"saved": 8}
+progress {"saved": 9}
+progress {"saved": 10}
+progress {"saved": 11}
+progress {"saved": 12}
+progress {"saved": 13}
+progress {"saved": 14}
+progress {"saved": 15}
+progress {"saved": 16}
+progress {"saved": 17}
+progress {"saved": 18}
+progress {"saved": 18, "outside_period": 1}
+progress {"saved": 19, "outside_period": 1}
+progress {"saved": 20, "outside_period": 1}
+progress {"saved": 21, "outside_period": 1}
+progress {"saved": 22, "outside_period": 1}
+progress {"saved": 23, "outside_period": 1}
+progress {"saved": 24, "outside_period": 1}
+progress {"saved": 25, "outside_period": 1}
+progress {"saved": 26, "outside_period": 1}
+progress {"saved": 27, "outside_period": 1}
+progress {"saved": 28, "outside_period": 1}
+progress {"saved": 29, "outside_period": 1}
+progress {"saved": 30, "outside_period": 1}
+progress {"saved": 31, "outside_period": 1}
+progress {"saved": 32, "outside_period": 1}
+progress {"saved": 33, "outside_period": 1}
+progress {"saved": 34, "outside_period": 1}
+progress {"saved": 35, "outside_period": 1}
+progress {"saved": 36, "outside_period": 1}
+progress {"saved": 37, "outside_period": 1}
+progress {"saved": 38, "outside_period": 1}
+progress {"saved": 39, "outside_period": 1}
+progress {"saved": 40, "outside_period": 1}
+progress {"saved": 41, "outside_period": 1}
+progress {"saved": 42, "outside_period": 1}
+progress {"saved": 43, "outside_period": 1}
+progress {"saved": 43, "outside_period": 2}
+progress {"saved": 44, "outside_period": 2}
+progress {"saved": 45, "outside_period": 2}
+progress {"saved": 46, "outside_period": 2}
+progress {"saved": 47, "outside_period": 2}
+progress {"saved": 48, "outside_period": 2}
+progress {"saved": 49, "outside_period": 2}
+progress {"saved": 50, "outside_period": 2}
+progress {"saved": 51, "outside_period": 2}
+progress {"saved": 52, "outside_period": 2}
+progress {"saved": 53, "outside_period": 2}
+progress {"saved": 54, "outside_period": 2}
+progress {"saved": 55, "outside_period": 2}
+progress {"saved": 56, "outside_period": 2}
+progress {"saved": 57, "outside_period": 2}
+progress {"saved": 58, "outside_period": 2}
+progress {"saved": 59, "outside_period": 2}
+progress {"saved": 60, "outside_period": 2}
+progress {"saved": 61, "outside_period": 2}
+progress {"saved": 62, "outside_period": 2}
+progress {"saved": 63, "outside_period": 2}
+progress {"saved": 64, "outside_period": 2}
+progress {"saved": 65, "outside_period": 2}
+progress {"saved": 66, "outside_period": 2}
+progress {"saved": 67, "outside_period": 2}
+progress {"saved": 68, "outside_period": 2}
+progress {"saved": 68, "outside_period": 3}
+progress {"saved": 69, "outside_period": 3}
+progress {"saved": 70, "outside_period": 3}
+progress {"saved": 71, "outside_period": 3}
+progress {"saved": 72, "outside_period": 3}
+progress {"saved": 73, "outside_period": 3}
+progress {"saved": 74, "outside_period": 3}
+progress {"saved": 75, "outside_period": 3}
+progress {"saved": 76, "outside_period": 3}
+progress {"saved": 77, "outside_period": 3}
+progress {"saved": 78, "outside_period": 3}
+progress {"saved": 79, "outside_period": 3}
+progress {"saved": 80, "outside_period": 3}
+progress {"saved": 81, "outside_period": 3}
+progress {"saved": 82, "outside_period": 3}
+progress {"saved": 83, "outside_period": 3}
+progress {"saved": 84, "outside_period": 3}
+progress {"saved": 85, "outside_period": 3}
+progress {"saved": 86, "outside_period": 3}
+progress {"saved": 87, "outside_period": 3}
+progress {"saved": 88, "outside_period": 3}
+progress {"saved": 89, "outside_period": 3}
+progress {"saved": 90, "outside_period": 3}
+progress {"saved": 91, "outside_period": 3}
+progress {"saved": 92, "outside_period": 3}
+progress {"saved": 93, "outside_period": 3}
+progress {"saved": 93, "outside_period": 4}
+progress {"saved": 94, "outside_period": 4}
+progress {"saved": 95, "outside_period": 4}
+progress {"saved": 96, "outside_period": 4}
+progress {"saved": 97, "outside_period": 4}
+progress {"saved": 98, "outside_period": 4}
+progress {"saved": 99, "outside_period": 4}
+progress {"saved": 100, "outside_period": 4}
+progress {"saved": 101, "outside_period": 4}
+progress {"saved": 102, "outside_period": 4}
+progress {"saved": 103, "outside_period": 4}
+progress {"saved": 104, "outside_period": 4}
+progress {"saved": 105, "outside_period": 4}
+progress {"saved": 106, "outside_period": 4}
+progress {"saved": 107, "outside_period": 4}
+progress {"saved": 108, "outside_period": 4}
+progress {"saved": 109, "outside_period": 4}
+progress {"saved": 110, "outside_period": 4}
+progress {"saved": 111, "outside_period": 4}
+progress {"saved": 112, "outside_period": 4}
+progress {"saved": 113, "outside_period": 4}
+progress {"saved": 114, "outside_period": 4}
+progress {"saved": 115, "outside_period": 4}
+progress {"saved": 116, "outside_period": 4}
+progress {"saved": 117, "outside_period": 4}
+progress {"saved": 118, "outside_period": 4}
+progress {"saved": 118, "outside_period": 5}
+progress {"saved": 119, "outside_period": 5}
+progress {"saved": 120, "outside_period": 5}
+progress {"saved": 121, "outside_period": 5}
+progress {"saved": 122, "outside_period": 5}
+progress {"saved": 123, "outside_period": 5}
+progress {"saved": 124, "outside_period": 5}
+progress {"saved": 125, "outside_period": 5}
+progress {"saved": 126, "outside_period": 5}
+progress {"saved": 127, "outside_period": 5}
+progress {"saved": 128, "outside_period": 5}
+progress {"saved": 129, "outside_period": 5}
+progress {"saved": 130, "outside_period": 5}
+progress {"saved": 131, "outside_period": 5}
+progress {"saved": 132, "outside_period": 5}
+progress {"saved": 133, "outside_period": 5}
+progress {"saved": 134, "outside_period": 5}
+progress {"saved": 135, "outside_period": 5}
+progress {"saved": 136, "outside_period": 5}
+progress {"saved": 137, "outside_period": 5}
+progress {"saved": 138, "outside_period": 5}
+progress {"saved": 139, "outside_period": 5}
+progress {"saved": 140, "outside_period": 5}
+progress {"saved": 141, "outside_period": 5}
+progress {"saved": 142, "outside_period": 5}
+progress {"saved": 143, "outside_period": 5}
+progress {"saved": 143, "outside_period": 6}
+progress {"saved": 144, "outside_period": 6}
+progress {"saved": 145, "outside_period": 6}
+progress {"saved": 146, "outside_period": 6}
+progress {"saved": 147, "outside_period": 6}
+progress {"saved": 148, "outside_period": 6}
+progress {"saved": 148, "outside_period": 7}
+progress {"saved": 149, "outside_period": 7}
+progress {"saved": 150, "outside_period": 7}
+progress {"saved": 151, "outside_period": 7}
+progress {"saved": 152, "outside_period": 7}
+progress {"saved": 153, "outside_period": 7}
+progress {"saved": 154, "outside_period": 7}
+progress {"saved": 155, "outside_period": 7}
+progress {"saved": 156, "outside_period": 7}
+progress {"saved": 157, "outside_period": 7}
+progress {"saved": 158, "outside_period": 7}
+progress {"saved": 159, "outside_period": 7}
+progress {"saved": 160, "outside_period": 7}
+progress {"saved": 161, "outside_period": 7}
+progress {"saved": 162, "outside_period": 7}
+progress {"saved": 163, "outside_period": 7}
+progress {"saved": 164, "outside_period": 7}
+progress {"saved": 165, "outside_period": 7}
+progress {"saved": 166, "outside_period": 7}
+progress {"saved": 167, "outside_period": 7}
+progress {"saved": 167, "outside_period": 8}
+progress {"saved": 168, "outside_period": 8}
+progress {"saved": 169, "outside_period": 8}
+progress {"saved": 170, "outside_period": 8}
+progress {"saved": 171, "outside_period": 8}
+progress {"saved": 172, "outside_period": 8}
+progress {"saved": 173, "outside_period": 8}
+progress {"saved": 174, "outside_period": 8}
+progress {"saved": 175, "outside_period": 8}
+progress {"saved": 176, "outside_period": 8}
+progress {"saved": 177, "outside_period": 8}
+progress {"saved": 178, "outside_period": 8}
+progress {"saved": 179, "outside_period": 8}
+progress {"saved": 180, "outside_period": 8}
+progress {"saved": 181, "outside_period": 8}
+progress {"saved": 182, "outside_period": 8}
+progress {"saved": 183, "outside_period": 8}
+progress {"saved": 184, "outside_period": 8}
+progress {"saved": 185, "outside_period": 8}
+progress {"saved": 186, "outside_period": 8}
+progress {"saved": 187, "outside_period": 8}
+progress {"saved": 188, "outside_period": 8}
+progress {"saved": 189, "outside_period": 8}
+progress {"saved": 190, "outside_period": 8}
+progress {"saved": 191, "outside_period": 8}
+progress {"saved": 192, "outside_period": 8}
+progress {"saved": 192, "outside_period": 9}
+progress {"saved": 193, "outside_period": 9}
+progress {"saved": 194, "outside_period": 9}
+progress {"saved": 195, "outside_period": 9}
+progress {"saved": 196, "outside_period": 9}
+progress {"saved": 197, "outside_period": 9}
+progress {"saved": 198, "outside_period": 9}
+progress {"saved": 199, "outside_period": 9}
+progress {"saved": 200, "outside_period": 9}
+progress {"saved": 201, "outside_period": 9}
+progress {"saved": 202, "outside_period": 9}
+progress {"saved": 203, "outside_period": 9}
+progress {"saved": 204, "outside_period": 9}
+progress {"saved": 205, "outside_period": 9}
+progress {"saved": 206, "outside_period": 9}
+progress {"saved": 207, "outside_period": 9}
+progress {"saved": 208, "outside_period": 9}
+progress {"saved": 209, "outside_period": 9}
+progress {"saved": 210, "outside_period": 9}
+progress {"saved": 211, "outside_period": 9}
+progress {"saved": 212, "outside_period": 9}
+progress {"saved": 213, "outside_period": 9}
+progress {"saved": 214, "outside_period": 9}
+progress {"saved": 215, "outside_period": 9}
+progress {"saved": 216, "outside_period": 9}
+progress {"saved": 217, "outside_period": 9}
+progress {"saved": 217, "outside_period": 10}
+progress {"saved": 218, "outside_period": 10}
+progress {"saved": 219, "outside_period": 10}
+progress {"saved": 220, "outside_period": 10}
+progress {"saved": 221, "outside_period": 10}
+progress {"saved": 222, "outside_period": 10}
+progress {"saved": 223, "outside_period": 10}
+progress {"saved": 224, "outside_period": 10}
+progress {"saved": 225, "outside_period": 10}
+progress {"saved": 226, "outside_period": 10}
+progress {"saved": 227, "outside_period": 10}
+progress {"saved": 228, "outside_period": 10}
+progress {"saved": 229, "outside_period": 10}
+progress {"saved": 230, "outside_period": 10}
+progress {"saved": 231, "outside_period": 10}
+progress {"saved": 232, "outside_period": 10}
+progress {"saved": 233, "outside_period": 10}
+progress {"saved": 234, "outside_period": 10}
+progress {"saved": 235, "outside_period": 10}
+progress {"saved": 236, "outside_period": 10}
+progress {"saved": 237, "outside_period": 10}
+progress {"saved": 238, "outside_period": 10}
+progress {"saved": 239, "outside_period": 10}
+progress {"saved": 240, "outside_period": 10}
+progress {"saved": 241, "outside_period": 10}
+progress {"saved": 242, "outside_period": 10}
+progress {"saved": 242, "outside_period": 11}
+progress {"saved": 243, "outside_period": 11}
+progress {"saved": 244, "outside_period": 11}
+progress {"saved": 245, "outside_period": 11}
+progress {"saved": 246, "outside_period": 11}
+progress {"saved": 247, "outside_period": 11}
+progress {"saved": 248, "outside_period": 11}
+progress {"saved": 249, "outside_period": 11}
+progress {"saved": 250, "outside_period": 11}
+progress {"saved": 251, "outside_period": 11}
+progress {"saved": 252, "outside_period": 11}
+progress {"saved": 253, "outside_period": 11}
+progress {"saved": 254, "outside_period": 11}
+progress {"saved": 255, "outside_period": 11}
+progress {"saved": 256, "outside_period": 11}
+progress {"saved": 257, "outside_period": 11}
+progress {"saved": 258, "outside_period": 11}
+progress {"saved": 259, "outside_period": 11}
+progress {"saved": 260, "outside_period": 11}
+progress {"saved": 261, "outside_period": 11}
+progress {"saved": 262, "outside_period": 11}
+progress {"saved": 263, "outside_period": 11}
+progress {"saved": 264, "outside_period": 11}
+progress {"saved": 265, "outside_period": 11}
+progress {"saved": 266, "outside_period": 11}
+progress {"saved": 267, "outside_period": 11}
+progress {"saved": 267, "outside_period": 12}
+progress {"saved": 268, "outside_period": 12}
+progress {"saved": 269, "outside_period": 12}
+progress {"saved": 270, "outside_period": 12}
+progress {"saved": 271, "outside_period": 12}
+progress {"saved": 272, "outside_period": 12}
+progress {"saved": 273, "outside_period": 12}
+progress {"saved": 274, "outside_period": 12}
+progress {"saved": 275, "outside_period": 12}
+progress {"saved": 276, "outside_period": 12}
+progress {"saved": 277, "outside_period": 12}
+progress {"saved": 278, "outside_period": 12}
+progress {"saved": 279, "outside_period": 12}
+progress {"saved": 280, "outside_period": 12}
+progress {"saved": 281, "outside_period": 12}
+progress {"saved": 282, "outside_period": 12}
+progress {"saved": 283, "outside_period": 12}
+progress {"saved": 284, "outside_period": 12}
+progress {"saved": 285, "outside_period": 12}
+progress {"saved": 286, "outside_period": 12}
+progress {"saved": 287, "outside_period": 12}
+progress {"saved": 288, "outside_period": 12}
+progress {"saved": 289, "outside_period": 12}
+progress {"saved": 290, "outside_period": 12}
+progress {"saved": 291, "outside_period": 12}
+progress {"saved": 292, "outside_period": 12}
+progress {"saved": 292, "outside_period": 13}
+progress {"saved": 293, "outside_period": 13}
+progress {"saved": 294, "outside_period": 13}
+progress {"saved": 295, "outside_period": 13}
+progress {"saved": 296, "outside_period": 13}
+progress {"saved": 297, "outside_period": 13}
+progress {"saved": 298, "outside_period": 13}
+progress {"saved": 299, "outside_period": 13}
+progress {"saved": 300, "outside_period": 13}
+progress {"saved": 301, "outside_period": 13}
+progress {"saved": 302, "outside_period": 13}
+progress {"saved": 303, "outside_period": 13}
+progress {"saved": 304, "outside_period": 13}
+progress {"saved": 305, "outside_period": 13}
+progress {"saved": 306, "outside_period": 13}
+progress {"saved": 307, "outside_period": 13}
+progress {"saved": 308, "outside_period": 13}
+progress {"saved": 309, "outside_period": 13}
+progress {"saved": 310, "outside_period": 13}
+progress {"saved": 311, "outside_period": 13}
+progress {"saved": 312, "outside_period": 13}
+progress {"saved": 313, "outside_period": 13}
+progress {"saved": 314, "outside_period": 13}
+progress {"saved": 315, "outside_period": 13}
+progress {"saved": 316, "outside_period": 13}
+progress {"saved": 317, "outside_period": 13}
+progress {"saved": 317, "outside_period": 14}
+progress {"saved": 318, "outside_period": 14}
+progress {"saved": 319, "outside_period": 14}
+progress {"saved": 320, "outside_period": 14}
+progress {"saved": 321, "outside_period": 14}
+progress {"saved": 322, "outside_period": 14}
+progress {"saved": 323, "outside_period": 14}
+progress {"saved": 324, "outside_period": 14}
+progress {"saved": 325, "outside_period": 14}
+progress {"saved": 326, "outside_period": 14}
+progress {"saved": 327, "outside_period": 14}
+progress {"saved": 328, "outside_period": 14}
+progress {"saved": 329, "outside_period": 14}
+progress {"saved": 330, "outside_period": 14}
+progress {"saved": 331, "outside_period": 14}
+progress {"saved": 332, "outside_period": 14}
+progress {"saved": 333, "outside_period": 14}
+progress {"saved": 334, "outside_period": 14}
+progress {"saved": 335, "outside_period": 14}
+progress {"saved": 336, "outside_period": 14}
+progress {"saved": 337, "outside_period": 14}
+progress {"saved": 338, "outside_period": 14}
+progress {"saved": 339, "outside_period": 14}
+progress {"saved": 340, "outside_period": 14}
+progress {"saved": 341, "outside_period": 14}
+progress {"saved": 342, "outside_period": 14}
+progress {"saved": 342, "outside_period": 15}
+progress {"saved": 343, "outside_period": 15}
+progress {"saved": 344, "outside_period": 15}
+progress {"saved": 345, "outside_period": 15}
+progress {"saved": 346, "outside_period": 15}
+progress {"saved": 347, "outside_period": 15}
+progress {"saved": 348, "outside_period": 15}
+progress {"saved": 349, "outside_period": 15}
+progress {"saved": 350, "outside_period": 15}
+progress {"saved": 351, "outside_period": 15}
+progress {"saved": 352, "outside_period": 15}
+progress {"saved": 353, "outside_period": 15}
+progress {"saved": 354, "outside_period": 15}
+progress {"saved": 355, "outside_period": 15}
+progress {"saved": 356, "outside_period": 15}
+progress {"saved": 357, "outside_period": 15}
+progress {"saved": 358, "outside_period": 15}
+progress {"saved": 359, "outside_period": 15}
+progress {"saved": 360, "outside_period": 15}
+progress {"saved": 361, "outside_period": 15}
+progress {"saved": 362, "outside_period": 15}
+progress {"saved": 363, "outside_period": 15}
+progress {"saved": 364, "outside_period": 15}
+progress {"saved": 365, "outside_period": 15}
+progress {"saved": 366, "outside_period": 15}
+progress {"saved": 367, "outside_period": 15}
+progress {"saved": 367, "outside_period": 16}
+progress {"saved": 368, "outside_period": 16}
+progress {"saved": 369, "outside_period": 16}
+progress {"saved": 370, "outside_period": 16}
+progress {"saved": 371, "outside_period": 16}
+progress {"saved": 372, "outside_period": 16}
+progress {"saved": 372, "outside_period": 17}
+progress {"saved": 373, "outside_period": 17}
+progress {"saved": 374, "outside_period": 17}
+progress {"saved": 375, "outside_period": 17}
+progress {"saved": 376, "outside_period": 17}
+progress {"saved": 377, "outside_period": 17}
+progress {"saved": 378, "outside_period": 17}
+progress {"saved": 379, "outside_period": 17}
+progress {"saved": 380, "outside_period": 17}
+progress {"saved": 381, "outside_period": 17}
+progress {"saved": 382, "outside_period": 17}
+progress {"saved": 383, "outside_period": 17}
+progress {"saved": 384, "outside_period": 17}
+progress {"saved": 385, "outside_period": 17}
+progress {"saved": 386, "outside_period": 17}
+progress {"saved": 387, "outside_period": 17}
+progress {"saved": 388, "outside_period": 17}
+progress {"saved": 389, "outside_period": 17}
+progress {"saved": 390, "outside_period": 17}
+progress {"saved": 391, "outside_period": 17}
+progress {"saved": 391, "outside_period": 18}
+progress {"saved": 392, "outside_period": 18}
+progress {"saved": 393, "outside_period": 18}
+progress {"saved": 394, "outside_period": 18}
+progress {"saved": 395, "outside_period": 18}
+progress {"saved": 396, "outside_period": 18}
+progress {"saved": 397, "outside_period": 18}
+progress {"saved": 398, "outside_period": 18}
+progress {"saved": 399, "outside_period": 18}
+progress {"saved": 400, "outside_period": 18}
+progress {"saved": 401, "outside_period": 18}
+progress {"saved": 402, "outside_period": 18}
+progress {"saved": 403, "outside_period": 18}
+progress {"saved": 404, "outside_period": 18}
+progress {"saved": 405, "outside_period": 18}
+progress {"saved": 406, "outside_period": 18}
+progress {"saved": 407, "outside_period": 18}
+progress {"saved": 408, "outside_period": 18}
+progress {"saved": 409, "outside_period": 18}
+progress {"saved": 410, "outside_period": 18}
+progress {"saved": 411, "outside_period": 18}
+progress {"saved": 412, "outside_period": 18}
+progress {"saved": 413, "outside_period": 18}
+progress {"saved": 414, "outside_period": 18}
+progress {"saved": 415, "outside_period": 18}
+progress {"saved": 416, "outside_period": 18}
+progress {"saved": 416, "outside_period": 19}
+progress {"saved": 417, "outside_period": 19}
+progress {"saved": 418, "outside_period": 19}
+progress {"saved": 419, "outside_period": 19}
+progress {"saved": 420, "outside_period": 19}
+progress {"saved": 421, "outside_period": 19}
+progress {"saved": 422, "outside_period": 19}
+progress {"saved": 423, "outside_period": 19}
+progress {"saved": 424, "outside_period": 19}
+progress {"saved": 425, "outside_period": 19}
+progress {"saved": 426, "outside_period": 19}
+progress {"saved": 427, "outside_period": 19}
+progress {"saved": 428, "outside_period": 19}
+progress {"saved": 429, "outside_period": 19}
+progress {"saved": 430, "outside_period": 19}
+progress {"saved": 431, "outside_period": 19}
+progress {"saved": 432, "outside_period": 19}
+progress {"saved": 433, "outside_period": 19}
+progress {"saved": 434, "outside_period": 19}
+progress {"saved": 435, "outside_period": 19}
+progress {"saved": 436, "outside_period": 19}
+progress {"saved": 437, "outside_period": 19}
+progress {"saved": 438, "outside_period": 19}
+progress {"saved": 439, "outside_period": 19}
+progress {"saved": 440, "outside_period": 19}
+progress {"saved": 441, "outside_period": 19}
+fetch failed bitcoincom https://news.bitcoin.com/host-a-bch-giveaway-with-bitcoin-coms-golden-ticket-software/: expected one article metadata object, found 0
+progress {"saved": 441, "outside_period": 19, "failed": 1}
+progress {"saved": 442, "outside_period": 19, "failed": 1}
+progress {"saved": 443, "outside_period": 19, "failed": 1}
+progress {"saved": 444, "outside_period": 19, "failed": 1}
+progress {"saved": 445, "outside_period": 19, "failed": 1}
+progress {"saved": 446, "outside_period": 19, "failed": 1}
+progress {"saved": 446, "outside_period": 20, "failed": 1}
+progress {"saved": 447, "outside_period": 20, "failed": 1}
+progress {"saved": 448, "outside_period": 20, "failed": 1}
+progress {"saved": 449, "outside_period": 20, "failed": 1}
+progress {"saved": 450, "outside_period": 20, "failed": 1}
+progress {"saved": 451, "outside_period": 20, "failed": 1}
+progress {"saved": 452, "outside_period": 20, "failed": 1}
+progress {"saved": 453, "outside_period": 20, "failed": 1}
+progress {"saved": 454, "outside_period": 20, "failed": 1}
+progress {"saved": 455, "outside_period": 20, "failed": 1}
+progress {"saved": 456, "outside_period": 20, "failed": 1}
+progress {"saved": 457, "outside_period": 20, "failed": 1}
+progress {"saved": 458, "outside_period": 20, "failed": 1}
+progress {"saved": 459, "outside_period": 20, "failed": 1}
+progress {"saved": 460, "outside_period": 20, "failed": 1}
+progress {"saved": 461, "outside_period": 20, "failed": 1}
+progress {"saved": 462, "outside_period": 20, "failed": 1}
+progress {"saved": 463, "outside_period": 20, "failed": 1}
+progress {"saved": 464, "outside_period": 20, "failed": 1}
+progress {"saved": 465, "outside_period": 20, "failed": 1}
+progress {"saved": 465, "outside_period": 21, "failed": 1}
+progress {"saved": 466, "outside_period": 21, "failed": 1}
+progress {"saved": 467, "outside_period": 21, "failed": 1}
+progress {"saved": 468, "outside_period": 21, "failed": 1}
+progress {"saved": 469, "outside_period": 21, "failed": 1}
+progress {"saved": 470, "outside_period": 21, "failed": 1}
+progress {"saved": 471, "outside_period": 21, "failed": 1}
+progress {"saved": 472, "outside_period": 21, "failed": 1}
+progress {"saved": 473, "outside_period": 21, "failed": 1}
+progress {"saved": 474, "outside_period": 21, "failed": 1}
+progress {"saved": 475, "outside_period": 21, "failed": 1}
+progress {"saved": 476, "outside_period": 21, "failed": 1}
+progress {"saved": 477, "outside_period": 21, "failed": 1}
+progress {"saved": 478, "outside_period": 21, "failed": 1}
+progress {"saved": 479, "outside_period": 21, "failed": 1}
+progress {"saved": 480, "outside_period": 21, "failed": 1}
+progress {"saved": 481, "outside_period": 21, "failed": 1}
+progress {"saved": 482, "outside_period": 21, "failed": 1}
+progress {"saved": 483, "outside_period": 21, "failed": 1}
+progress {"saved": 484, "outside_period": 21, "failed": 1}
+progress {"saved": 485, "outside_period": 21, "failed": 1}
+progress {"saved": 486, "outside_period": 21, "failed": 1}
+progress {"saved": 487, "outside_period": 21, "failed": 1}
+progress {"saved": 488, "outside_period": 21, "failed": 1}
+progress {"saved": 489, "outside_period": 21, "failed": 1}
+progress {"saved": 490, "outside_period": 21, "failed": 1}
+progress {"saved": 490, "outside_period": 22, "failed": 1}
+progress {"saved": 491, "outside_period": 22, "failed": 1}
+progress {"saved": 492, "outside_period": 22, "failed": 1}
+progress {"saved": 493, "outside_period": 22, "failed": 1}
+fetch failed bitcoincom https://news.bitcoin.com/bitcoin-pepe-bitcoins-first-meme-ico-has-launched-and-fomo-is-real/: expected one article metadata object, found 0
+progress {"saved": 493, "outside_period": 22, "failed": 2}
+progress {"saved": 494, "outside_period": 22, "failed": 2}
+progress {"saved": 495, "outside_period": 22, "failed": 2}
+progress {"saved": 496, "outside_period": 22, "failed": 2}
+progress {"saved": 497, "outside_period": 22, "failed": 2}
+progress {"saved": 498, "outside_period": 22, "failed": 2}
+progress {"saved": 499, "outside_period": 22, "failed": 2}
+progress {"saved": 500, "outside_period": 22, "failed": 2}
+progress {"saved": 501, "outside_period": 22, "failed": 2}
+progress {"saved": 502, "outside_period": 22, "failed": 2}
+progress {"saved": 503, "outside_period": 22, "failed": 2}
+progress {"saved": 504, "outside_period": 22, "failed": 2}
+progress {"saved": 505, "outside_period": 22, "failed": 2}
+progress {"saved": 506, "outside_period": 22, "failed": 2}
+progress {"saved": 507, "outside_period": 22, "failed": 2}
+progress {"saved": 508, "outside_period": 22, "failed": 2}
+progress {"saved": 509, "outside_period": 22, "failed": 2}
+progress {"saved": 510, "outside_period": 22, "failed": 2}
+progress {"saved": 511, "outside_period": 22, "failed": 2}
+progress {"saved": 512, "outside_period": 22, "failed": 2}
+progress {"saved": 513, "outside_period": 22, "failed": 2}
+progress {"saved": 514, "outside_period": 22, "failed": 2}
+progress {"saved": 514, "outside_period": 23, "failed": 2}
+progress {"saved": 515, "outside_period": 23, "failed": 2}
+progress {"saved": 516, "outside_period": 23, "failed": 2}
+progress {"saved": 517, "outside_period": 23, "failed": 2}
+progress {"saved": 518, "outside_period": 23, "failed": 2}
+progress {"saved": 519, "outside_period": 23, "failed": 2}
+progress {"saved": 520, "outside_period": 23, "failed": 2}
+progress {"saved": 521, "outside_period": 23, "failed": 2}
+progress {"saved": 522, "outside_period": 23, "failed": 2}
+progress {"saved": 523, "outside_period": 23, "failed": 2}
+progress {"saved": 524, "outside_period": 23, "failed": 2}
+progress {"saved": 525, "outside_period": 23, "failed": 2}
+progress {"saved": 526, "outside_period": 23, "failed": 2}
+progress {"saved": 527, "outside_period": 23, "failed": 2}
+progress {"saved": 528, "outside_period": 23, "failed": 2}
+progress {"saved": 529, "outside_period": 23, "failed": 2}
+progress {"saved": 530, "outside_period": 23, "failed": 2}
+progress {"saved": 531, "outside_period": 23, "failed": 2}
+progress {"saved": 532, "outside_period": 23, "failed": 2}
+progress {"saved": 533, "outside_period": 23, "failed": 2}
+progress {"saved": 534, "outside_period": 23, "failed": 2}
+progress {"saved": 535, "outside_period": 23, "failed": 2}
+progress {"saved": 536, "outside_period": 23, "failed": 2}
+progress {"saved": 537, "outside_period": 23, "failed": 2}
+progress {"saved": 538, "outside_period": 23, "failed": 2}
+progress {"saved": 539, "outside_period": 23, "failed": 2}
+progress {"saved": 539, "outside_period": 24, "failed": 2}
+progress {"saved": 540, "outside_period": 24, "failed": 2}
+progress {"saved": 541, "outside_period": 24, "failed": 2}
+progress {"saved": 542, "outside_period": 24, "failed": 2}
+progress {"saved": 543, "outside_period": 24, "failed": 2}
+progress {"saved": 544, "outside_period": 24, "failed": 2}
+progress {"saved": 544, "outside_period": 25, "failed": 2}
+progress {"saved": 545, "outside_period": 25, "failed": 2}
+progress {"saved": 546, "outside_period": 25, "failed": 2}
+progress {"saved": 547, "outside_period": 25, "failed": 2}
+progress {"saved": 548, "outside_period": 25, "failed": 2}
+progress {"saved": 549, "outside_period": 25, "failed": 2}
+progress {"saved": 550, "outside_period": 25, "failed": 2}
+progress {"saved": 551, "outside_period": 25, "failed": 2}
+fetch failed bitcoincom https://news.bitcoin.com/gemini-what-is-the-bitcoin-credit-card-and-how-does-it-work/: expected one article metadata object, found 0
+progress {"saved": 551, "outside_period": 25, "failed": 3}
+progress {"saved": 552, "outside_period": 25, "failed": 3}
+progress {"saved": 553, "outside_period": 25, "failed": 3}
+progress {"saved": 554, "outside_period": 25, "failed": 3}
+progress {"saved": 555, "outside_period": 25, "failed": 3}
+progress {"saved": 556, "outside_period": 25, "failed": 3}
+progress {"saved": 557, "outside_period": 25, "failed": 3}
+progress {"saved": 558, "outside_period": 25, "failed": 3}
+progress {"saved": 559, "outside_period": 25, "failed": 3}
+progress {"saved": 560, "outside_period": 25, "failed": 3}
+progress {"saved": 561, "outside_period": 25, "failed": 3}
+progress {"saved": 562, "outside_period": 25, "failed": 3}
+progress {"saved": 562, "outside_period": 26, "failed": 3}
+progress {"saved": 563, "outside_period": 26, "failed": 3}
+progress {"saved": 564, "outside_period": 26, "failed": 3}
+progress {"saved": 565, "outside_period": 26, "failed": 3}
+progress {"saved": 566, "outside_period": 26, "failed": 3}
+progress {"saved": 567, "outside_period": 26, "failed": 3}
+progress {"saved": 568, "outside_period": 26, "failed": 3}
+progress {"saved": 569, "outside_period": 26, "failed": 3}
+progress {"saved": 570, "outside_period": 26, "failed": 3}
+progress {"saved": 571, "outside_period": 26, "failed": 3}
+progress {"saved": 572, "outside_period": 26, "failed": 3}
+progress {"saved": 573, "outside_period": 26, "failed": 3}
+progress {"saved": 574, "outside_period": 26, "failed": 3}
+progress {"saved": 575, "outside_period": 26, "failed": 3}
+progress {"saved": 576, "outside_period": 26, "failed": 3}
+progress {"saved": 577, "outside_period": 26, "failed": 3}
+progress {"saved": 578, "outside_period": 26, "failed": 3}
+progress {"saved": 579, "outside_period": 26, "failed": 3}
+progress {"saved": 580, "outside_period": 26, "failed": 3}
+progress {"saved": 581, "outside_period": 26, "failed": 3}
+progress {"saved": 582, "outside_period": 26, "failed": 3}
+progress {"saved": 583, "outside_period": 26, "failed": 3}
+progress {"saved": 584, "outside_period": 26, "failed": 3}
+progress {"saved": 585, "outside_period": 26, "failed": 3}
+progress {"saved": 586, "outside_period": 26, "failed": 3}
+progress {"saved": 587, "outside_period": 26, "failed": 3}
+progress {"saved": 587, "outside_period": 27, "failed": 3}
+progress {"saved": 588, "outside_period": 27, "failed": 3}
+progress {"saved": 589, "outside_period": 27, "failed": 3}
+progress {"saved": 590, "outside_period": 27, "failed": 3}
+progress {"saved": 591, "outside_period": 27, "failed": 3}
+progress {"saved": 592, "outside_period": 27, "failed": 3}
+progress {"saved": 593, "outside_period": 27, "failed": 3}
+progress {"saved": 594, "outside_period": 27, "failed": 3}
+progress {"saved": 595, "outside_period": 27, "failed": 3}
+progress {"saved": 596, "outside_period": 27, "failed": 3}
+progress {"saved": 597, "outside_period": 27, "failed": 3}
+progress {"saved": 598, "outside_period": 27, "failed": 3}
+progress {"saved": 599, "outside_period": 27, "failed": 3}
+progress {"saved": 600, "outside_period": 27, "failed": 3}
+progress {"saved": 601, "outside_period": 27, "failed": 3}
+progress {"saved": 602, "outside_period": 27, "failed": 3}
+progress {"saved": 603, "outside_period": 27, "failed": 3}
+progress {"saved": 604, "outside_period": 27, "failed": 3}
+progress {"saved": 605, "outside_period": 27, "failed": 3}
+progress {"saved": 606, "outside_period": 27, "failed": 3}
+progress {"saved": 607, "outside_period": 27, "failed": 3}
+progress {"saved": 608, "outside_period": 27, "failed": 3}
+progress {"saved": 609, "outside_period": 27, "failed": 3}
+progress {"saved": 610, "outside_period": 27, "failed": 3}
+progress {"saved": 611, "outside_period": 27, "failed": 3}
+progress {"saved": 612, "outside_period": 27, "failed": 3}
+progress {"saved": 612, "outside_period": 28, "failed": 3}
+progress {"saved": 613, "outside_period": 28, "failed": 3}
+progress {"saved": 614, "outside_period": 28, "failed": 3}
+progress {"saved": 615, "outside_period": 28, "failed": 3}
+fetch failed bitcoincom https://news.bitcoin.com/btc-bull-token-presale-soars-past-500k-in-first-24-hours-next-big-meme-coin/: expected one article metadata object, found 0
+progress {"saved": 615, "outside_period": 28, "failed": 4}
+progress {"saved": 616, "outside_period": 28, "failed": 4}
+progress {"saved": 617, "outside_period": 28, "failed": 4}
+progress {"saved": 618, "outside_period": 28, "failed": 4}
+progress {"saved": 619, "outside_period": 28, "failed": 4}
+progress {"saved": 620, "outside_period": 28, "failed": 4}
+progress {"saved": 621, "outside_period": 28, "failed": 4}
+progress {"saved": 622, "outside_period": 28, "failed": 4}
+progress {"saved": 623, "outside_period": 28, "failed": 4}
+progress {"saved": 624, "outside_period": 28, "failed": 4}
+progress {"saved": 625, "outside_period": 28, "failed": 4}
+progress {"saved": 626, "outside_period": 28, "failed": 4}
+progress {"saved": 627, "outside_period": 28, "failed": 4}
+progress {"saved": 628, "outside_period": 28, "failed": 4}
+progress {"saved": 629, "outside_period": 28, "failed": 4}
+progress {"saved": 630, "outside_period": 28, "failed": 4}
+progress {"saved": 631, "outside_period": 28, "failed": 4}
+progress {"saved": 632, "outside_period": 28, "failed": 4}
+progress {"saved": 633, "outside_period": 28, "failed": 4}
+progress {"saved": 634, "outside_period": 28, "failed": 4}
+progress {"saved": 635, "outside_period": 28, "failed": 4}
+progress {"saved": 636, "outside_period": 28, "failed": 4}
+progress {"saved": 636, "outside_period": 29, "failed": 4}
+progress {"saved": 637, "outside_period": 29, "failed": 4}
+progress {"saved": 638, "outside_period": 29, "failed": 4}
+progress {"saved": 639, "outside_period": 29, "failed": 4}
+progress {"saved": 640, "outside_period": 29, "failed": 4}
+progress {"saved": 641, "outside_period": 29, "failed": 4}
+progress {"saved": 642, "outside_period": 29, "failed": 4}
+progress {"saved": 643, "outside_period": 29, "failed": 4}
+progress {"saved": 644, "outside_period": 29, "failed": 4}
+progress {"saved": 645, "outside_period": 29, "failed": 4}
+progress {"saved": 646, "outside_period": 29, "failed": 4}
+progress {"saved": 647, "outside_period": 29, "failed": 4}
+progress {"saved": 648, "outside_period": 29, "failed": 4}
+progress {"saved": 649, "outside_period": 29, "failed": 4}
+progress {"saved": 650, "outside_period": 29, "failed": 4}
+progress {"saved": 651, "outside_period": 29, "failed": 4}
+progress {"saved": 652, "outside_period": 29, "failed": 4}
+progress {"saved": 653, "outside_period": 29, "failed": 4}
+progress {"saved": 654, "outside_period": 29, "failed": 4}
+progress {"saved": 655, "outside_period": 29, "failed": 4}
+progress {"saved": 656, "outside_period": 29, "failed": 4}
+progress {"saved": 657, "outside_period": 29, "failed": 4}
+progress {"saved": 658, "outside_period": 29, "failed": 4}
+progress {"saved": 659, "outside_period": 29, "failed": 4}
+progress {"saved": 660, "outside_period": 29, "failed": 4}
+progress {"saved": 661, "outside_period": 29, "failed": 4}
+progress {"saved": 661, "outside_period": 30, "failed": 4}
+progress {"saved": 662, "outside_period": 30, "failed": 4}
+progress {"saved": 663, "outside_period": 30, "failed": 4}
+progress {"saved": 664, "outside_period": 30, "failed": 4}
+progress {"saved": 665, "outside_period": 30, "failed": 4}
+progress {"saved": 666, "outside_period": 30, "failed": 4}
+progress {"saved": 667, "outside_period": 30, "failed": 4}
+progress {"saved": 668, "outside_period": 30, "failed": 4}
+progress {"saved": 669, "outside_period": 30, "failed": 4}
+progress {"saved": 670, "outside_period": 30, "failed": 4}
+progress {"saved": 671, "outside_period": 30, "failed": 4}
+progress {"saved": 672, "outside_period": 30, "failed": 4}
+progress {"saved": 673, "outside_period": 30, "failed": 4}
+progress {"saved": 674, "outside_period": 30, "failed": 4}
+progress {"saved": 675, "outside_period": 30, "failed": 4}
+progress {"saved": 676, "outside_period": 30, "failed": 4}
+progress {"saved": 677, "outside_period": 30, "failed": 4}
+progress {"saved": 678, "outside_period": 30, "failed": 4}
+progress {"saved": 679, "outside_period": 30, "failed": 4}
+progress {"saved": 680, "outside_period": 30, "failed": 4}
+progress {"saved": 681, "outside_period": 30, "failed": 4}
+progress {"saved": 682, "outside_period": 30, "failed": 4}
+progress {"saved": 683, "outside_period": 30, "failed": 4}
+progress {"saved": 684, "outside_period": 30, "failed": 4}
+progress {"saved": 685, "outside_period": 30, "failed": 4}
+progress {"saved": 686, "outside_period": 30, "failed": 4}
+progress {"saved": 686, "outside_period": 31, "failed": 4}
+progress {"saved": 687, "outside_period": 31, "failed": 4}
+progress {"saved": 688, "outside_period": 31, "failed": 4}
+progress {"saved": 689, "outside_period": 31, "failed": 4}
+progress {"saved": 690, "outside_period": 31, "failed": 4}
+progress {"saved": 691, "outside_period": 31, "failed": 4}
+progress {"saved": 692, "outside_period": 31, "failed": 4}
+progress {"saved": 693, "outside_period": 31, "failed": 4}
+progress {"saved": 694, "outside_period": 31, "failed": 4}
+progress {"saved": 695, "outside_period": 31, "failed": 4}
+progress {"saved": 696, "outside_period": 31, "failed": 4}
+progress {"saved": 697, "outside_period": 31, "failed": 4}
+progress {"saved": 698, "outside_period": 31, "failed": 4}
+progress {"saved": 699, "outside_period": 31, "failed": 4}
+progress {"saved": 700, "outside_period": 31, "failed": 4}
+progress {"saved": 701, "outside_period": 31, "failed": 4}
+progress {"saved": 702, "outside_period": 31, "failed": 4}
+fetch failed coindesk https://www.coindesk.com/daybook-us/2025/07/07/stone-cold-btc-drains-bull-mood-from-long-term-options-crypto-daybook-americas: missing headline
+progress {"saved": 702, "outside_period": 31, "failed": 5}
+progress {"saved": 703, "outside_period": 31, "failed": 5}
+progress {"saved": 704, "outside_period": 31, "failed": 5}
+progress {"saved": 705, "outside_period": 31, "failed": 5}
+progress {"saved": 706, "outside_period": 31, "failed": 5}
+progress {"saved": 707, "outside_period": 31, "failed": 5}
+progress {"saved": 708, "outside_period": 31, "failed": 5}
+fetch failed bitcoincom https://news.bitcoin.com/tbc-revolutionizing-bitcoin-with-utxo-smart-contracts-and-cross-chain-innovation/: expected one article metadata object, found 0
+progress {"saved": 708, "outside_period": 31, "failed": 6}
+progress {"saved": 709, "outside_period": 31, "failed": 6}
+progress {"saved": 709, "outside_period": 32, "failed": 6}
+progress {"saved": 710, "outside_period": 32, "failed": 6}
+progress {"saved": 711, "outside_period": 32, "failed": 6}
+progress {"saved": 712, "outside_period": 32, "failed": 6}
+progress {"saved": 713, "outside_period": 32, "failed": 6}
+progress {"saved": 714, "outside_period": 32, "failed": 6}
+progress {"saved": 715, "outside_period": 32, "failed": 6}
+progress {"saved": 716, "outside_period": 32, "failed": 6}
+progress {"saved": 717, "outside_period": 32, "failed": 6}
+progress {"saved": 718, "outside_period": 32, "failed": 6}
+progress {"saved": 719, "outside_period": 32, "failed": 6}
+progress {"saved": 720, "outside_period": 32, "failed": 6}
+progress {"saved": 721, "outside_period": 32, "failed": 6}
+progress {"saved": 722, "outside_period": 32, "failed": 6}
+progress {"saved": 723, "outside_period": 32, "failed": 6}
+progress {"saved": 724, "outside_period": 32, "failed": 6}
+progress {"saved": 725, "outside_period": 32, "failed": 6}
+progress {"saved": 726, "outside_period": 32, "failed": 6}
+progress {"saved": 727, "outside_period": 32, "failed": 6}
+progress {"saved": 728, "outside_period": 32, "failed": 6}
+progress {"saved": 729, "outside_period": 32, "failed": 6}
+progress {"saved": 730, "outside_period": 32, "failed": 6}
+progress {"saved": 731, "outside_period": 32, "failed": 6}
+progress {"saved": 732, "outside_period": 32, "failed": 6}
+progress {"saved": 733, "outside_period": 32, "failed": 6}
+progress {"saved": 734, "outside_period": 32, "failed": 6}
+progress {"saved": 734, "outside_period": 33, "failed": 6}
+progress {"saved": 735, "outside_period": 33, "failed": 6}
+progress {"saved": 736, "outside_period": 33, "failed": 6}
+progress {"saved": 737, "outside_period": 33, "failed": 6}
+progress {"saved": 738, "outside_period": 33, "failed": 6}
+progress {"saved": 739, "outside_period": 33, "failed": 6}
+progress {"saved": 740, "outside_period": 33, "failed": 6}
+progress {"saved": 741, "outside_period": 33, "failed": 6}
+progress {"saved": 742, "outside_period": 33, "failed": 6}
+progress {"saved": 743, "outside_period": 33, "failed": 6}
+progress {"saved": 744, "outside_period": 33, "failed": 6}
+progress {"saved": 745, "outside_period": 33, "failed": 6}
+progress {"saved": 746, "outside_period": 33, "failed": 6}
+progress {"saved": 747, "outside_period": 33, "failed": 6}
+progress {"saved": 748, "outside_period": 33, "failed": 6}
+progress {"saved": 749, "outside_period": 33, "failed": 6}
+progress {"saved": 750, "outside_period": 33, "failed": 6}
+progress {"saved": 751, "outside_period": 33, "failed": 6}
+progress {"saved": 752, "outside_period": 33, "failed": 6}
+progress {"saved": 753, "outside_period": 33, "failed": 6}
+progress {"saved": 754, "outside_period": 33, "failed": 6}
+progress {"saved": 755, "outside_period": 33, "failed": 6}
+progress {"saved": 756, "outside_period": 33, "failed": 6}
+progress {"saved": 757, "outside_period": 33, "failed": 6}
+progress {"saved": 758, "outside_period": 33, "failed": 6}
+progress {"saved": 759, "outside_period": 33, "failed": 6}
+progress {"saved": 759, "outside_period": 34, "failed": 6}
+progress {"saved": 760, "outside_period": 34, "failed": 6}
+progress {"saved": 761, "outside_period": 34, "failed": 6}
+progress {"saved": 762, "outside_period": 34, "failed": 6}
+fetch failed bitcoincom https://news.bitcoin.com/claps-casino-crypto-and-bitcoin-casino-for-online-gaming/: expected one article metadata object, found 0
+progress {"saved": 762, "outside_period": 34, "failed": 7}
+progress {"saved": 763, "outside_period": 34, "failed": 7}
+progress {"saved": 764, "outside_period": 34, "failed": 7}
+progress {"saved": 765, "outside_period": 34, "failed": 7}
+progress {"saved": 766, "outside_period": 34, "failed": 7}
+progress {"saved": 767, "outside_period": 34, "failed": 7}
+progress {"saved": 768, "outside_period": 34, "failed": 7}
+progress {"saved": 769, "outside_period": 34, "failed": 7}
+progress {"saved": 770, "outside_period": 34, "failed": 7}
+progress {"saved": 771, "outside_period": 34, "failed": 7}
+progress {"saved": 772, "outside_period": 34, "failed": 7}
+progress {"saved": 773, "outside_period": 34, "failed": 7}
+progress {"saved": 774, "outside_period": 34, "failed": 7}
+progress {"saved": 775, "outside_period": 34, "failed": 7}
+progress {"saved": 776, "outside_period": 34, "failed": 7}
+progress {"saved": 777, "outside_period": 34, "failed": 7}
+progress {"saved": 778, "outside_period": 34, "failed": 7}
+progress {"saved": 779, "outside_period": 34, "failed": 7}
+progress {"saved": 780, "outside_period": 34, "failed": 7}
+progress {"saved": 781, "outside_period": 34, "failed": 7}
+progress {"saved": 782, "outside_period": 34, "failed": 7}
+progress {"saved": 783, "outside_period": 34, "failed": 7}
+progress {"saved": 783, "outside_period": 35, "failed": 7}
+progress {"saved": 784, "outside_period": 35, "failed": 7}
+progress {"saved": 785, "outside_period": 35, "failed": 7}
+progress {"saved": 786, "outside_period": 35, "failed": 7}
+progress {"saved": 787, "outside_period": 35, "failed": 7}
+progress {"saved": 788, "outside_period": 35, "failed": 7}
+progress {"saved": 789, "outside_period": 35, "failed": 7}
+progress {"saved": 790, "outside_period": 35, "failed": 7}
+progress {"saved": 791, "outside_period": 35, "failed": 7}
+progress {"saved": 792, "outside_period": 35, "failed": 7}
+progress {"saved": 793, "outside_period": 35, "failed": 7}
+progress {"saved": 794, "outside_period": 35, "failed": 7}
+progress {"saved": 795, "outside_period": 35, "failed": 7}
+progress {"saved": 796, "outside_period": 35, "failed": 7}
+progress {"saved": 797, "outside_period": 35, "failed": 7}
+progress {"saved": 798, "outside_period": 35, "failed": 7}
+progress {"saved": 799, "outside_period": 35, "failed": 7}
+progress {"saved": 800, "outside_period": 35, "failed": 7}
+progress {"saved": 801, "outside_period": 35, "failed": 7}
+progress {"saved": 802, "outside_period": 35, "failed": 7}
+progress {"saved": 803, "outside_period": 35, "failed": 7}
+progress {"saved": 804, "outside_period": 35, "failed": 7}
+progress {"saved": 805, "outside_period": 35, "failed": 7}
+progress {"saved": 806, "outside_period": 35, "failed": 7}
+progress {"saved": 807, "outside_period": 35, "failed": 7}
+progress {"saved": 808, "outside_period": 35, "failed": 7}
+progress {"saved": 808, "outside_period": 36, "failed": 7}
+progress {"saved": 809, "outside_period": 36, "failed": 7}
+progress {"saved": 810, "outside_period": 36, "failed": 7}
+progress {"saved": 811, "outside_period": 36, "failed": 7}
+progress {"saved": 812, "outside_period": 36, "failed": 7}
+progress {"saved": 813, "outside_period": 36, "failed": 7}
+progress {"saved": 814, "outside_period": 36, "failed": 7}
+progress {"saved": 815, "outside_period": 36, "failed": 7}
+progress {"saved": 816, "outside_period": 36, "failed": 7}
+progress {"saved": 817, "outside_period": 36, "failed": 7}
+progress {"saved": 818, "outside_period": 36, "failed": 7}
+progress {"saved": 819, "outside_period": 36, "failed": 7}
+progress {"saved": 820, "outside_period": 36, "failed": 7}
+progress {"saved": 821, "outside_period": 36, "failed": 7}
+progress {"saved": 822, "outside_period": 36, "failed": 7}
+progress {"saved": 823, "outside_period": 36, "failed": 7}
+progress {"saved": 824, "outside_period": 36, "failed": 7}
+progress {"saved": 825, "outside_period": 36, "failed": 7}
+progress {"saved": 826, "outside_period": 36, "failed": 7}
+progress {"saved": 827, "outside_period": 36, "failed": 7}
+progress {"saved": 828, "outside_period": 36, "failed": 7}
+progress {"saved": 829, "outside_period": 36, "failed": 7}
+progress {"saved": 830, "outside_period": 36, "failed": 7}
+progress {"saved": 831, "outside_period": 36, "failed": 7}
+progress {"saved": 832, "outside_period": 36, "failed": 7}
+progress {"saved": 833, "outside_period": 36, "failed": 7}
+progress {"saved": 833, "outside_period": 37, "failed": 7}
+progress {"saved": 834, "outside_period": 37, "failed": 7}
+progress {"saved": 835, "outside_period": 37, "failed": 7}
+progress {"saved": 836, "outside_period": 37, "failed": 7}
+progress {"saved": 837, "outside_period": 37, "failed": 7}
+progress {"saved": 838, "outside_period": 37, "failed": 7}
+progress {"saved": 839, "outside_period": 37, "failed": 7}
+progress {"saved": 840, "outside_period": 37, "failed": 7}
+progress {"saved": 841, "outside_period": 37, "failed": 7}
+progress {"saved": 842, "outside_period": 37, "failed": 7}
+progress {"saved": 843, "outside_period": 37, "failed": 7}
+progress {"saved": 844, "outside_period": 37, "failed": 7}
+progress {"saved": 845, "outside_period": 37, "failed": 7}
+progress {"saved": 846, "outside_period": 37, "failed": 7}
+progress {"saved": 847, "outside_period": 37, "failed": 7}
+progress {"saved": 848, "outside_period": 37, "failed": 7}
+progress {"saved": 849, "outside_period": 37, "failed": 7}
+progress {"saved": 850, "outside_period": 37, "failed": 7}
+progress {"saved": 851, "outside_period": 37, "failed": 7}
+progress {"saved": 852, "outside_period": 37, "failed": 7}
+progress {"saved": 853, "outside_period": 37, "failed": 7}
+progress {"saved": 854, "outside_period": 37, "failed": 7}
+progress {"saved": 855, "outside_period": 37, "failed": 7}
+progress {"saved": 856, "outside_period": 37, "failed": 7}
+progress {"saved": 857, "outside_period": 37, "failed": 7}
+progress {"saved": 858, "outside_period": 37, "failed": 7}
+progress {"saved": 858, "outside_period": 38, "failed": 7}
+progress {"saved": 859, "outside_period": 38, "failed": 7}
+progress {"saved": 860, "outside_period": 38, "failed": 7}
+progress {"saved": 861, "outside_period": 38, "failed": 7}
+progress {"saved": 862, "outside_period": 38, "failed": 7}
+progress {"saved": 863, "outside_period": 38, "failed": 7}
+progress {"saved": 864, "outside_period": 38, "failed": 7}
+progress {"saved": 865, "outside_period": 38, "failed": 7}
+progress {"saved": 866, "outside_period": 38, "failed": 7}
+progress {"saved": 867, "outside_period": 38, "failed": 7}
+progress {"saved": 868, "outside_period": 38, "failed": 7}
+progress {"saved": 869, "outside_period": 38, "failed": 7}
+progress {"saved": 870, "outside_period": 38, "failed": 7}
+progress {"saved": 871, "outside_period": 38, "failed": 7}
+progress {"saved": 872, "outside_period": 38, "failed": 7}
+progress {"saved": 873, "outside_period": 38, "failed": 7}
+progress {"saved": 874, "outside_period": 38, "failed": 7}
+progress {"saved": 875, "outside_period": 38, "failed": 7}
+progress {"saved": 876, "outside_period": 38, "failed": 7}
+progress {"saved": 877, "outside_period": 38, "failed": 7}
+progress {"saved": 878, "outside_period": 38, "failed": 7}
+progress {"saved": 879, "outside_period": 38, "failed": 7}
+progress {"saved": 880, "outside_period": 38, "failed": 7}
+progress {"saved": 881, "outside_period": 38, "failed": 7}
+progress {"saved": 882, "outside_period": 38, "failed": 7}
+progress {"saved": 883, "outside_period": 38, "failed": 7}
+progress {"saved": 883, "outside_period": 39, "failed": 7}
+progress {"saved": 884, "outside_period": 39, "failed": 7}
+progress {"saved": 885, "outside_period": 39, "failed": 7}
+progress {"saved": 886, "outside_period": 39, "failed": 7}
+progress {"saved": 887, "outside_period": 39, "failed": 7}
+progress {"saved": 888, "outside_period": 39, "failed": 7}
+progress {"saved": 889, "outside_period": 39, "failed": 7}
+progress {"saved": 890, "outside_period": 39, "failed": 7}
+progress {"saved": 891, "outside_period": 39, "failed": 7}
+progress {"saved": 892, "outside_period": 39, "failed": 7}
+progress {"saved": 893, "outside_period": 39, "failed": 7}
+progress {"saved": 894, "outside_period": 39, "failed": 7}
+progress {"saved": 895, "outside_period": 39, "failed": 7}
+progress {"saved": 896, "outside_period": 39, "failed": 7}
+progress {"saved": 897, "outside_period": 39, "failed": 7}
+progress {"saved": 898, "outside_period": 39, "failed": 7}
+progress {"saved": 899, "outside_period": 39, "failed": 7}
+progress {"saved": 900, "outside_period": 39, "failed": 7}
+progress {"saved": 901, "outside_period": 39, "failed": 7}
+progress {"saved": 902, "outside_period": 39, "failed": 7}
+progress {"saved": 903, "outside_period": 39, "failed": 7}
+progress {"saved": 904, "outside_period": 39, "failed": 7}
+progress {"saved": 905, "outside_period": 39, "failed": 7}
+progress {"saved": 906, "outside_period": 39, "failed": 7}
+progress {"saved": 907, "outside_period": 39, "failed": 7}
+progress {"saved": 908, "outside_period": 39, "failed": 7}
+progress {"saved": 908, "outside_period": 40, "failed": 7}
+progress {"saved": 909, "outside_period": 40, "failed": 7}
+progress {"saved": 910, "outside_period": 40, "failed": 7}
+progress {"saved": 911, "outside_period": 40, "failed": 7}
+progress {"saved": 912, "outside_period": 40, "failed": 7}
+progress {"saved": 913, "outside_period": 40, "failed": 7}
+progress {"saved": 914, "outside_period": 40, "failed": 7}
+progress {"saved": 915, "outside_period": 40, "failed": 7}
+progress {"saved": 916, "outside_period": 40, "failed": 7}
+progress {"saved": 917, "outside_period": 40, "failed": 7}
+progress {"saved": 918, "outside_period": 40, "failed": 7}
+progress {"saved": 919, "outside_period": 40, "failed": 7}
+progress {"saved": 920, "outside_period": 40, "failed": 7}
+progress {"saved": 921, "outside_period": 40, "failed": 7}
+progress {"saved": 922, "outside_period": 40, "failed": 7}
+progress {"saved": 923, "outside_period": 40, "failed": 7}
+progress {"saved": 924, "outside_period": 40, "failed": 7}
+progress {"saved": 925, "outside_period": 40, "failed": 7}
+progress {"saved": 926, "outside_period": 40, "failed": 7}
+progress {"saved": 927, "outside_period": 40, "failed": 7}
+progress {"saved": 928, "outside_period": 40, "failed": 7}
+progress {"saved": 929, "outside_period": 40, "failed": 7}
+progress {"saved": 930, "outside_period": 40, "failed": 7}
+progress {"saved": 931, "outside_period": 40, "failed": 7}
+fetch failed bitcoincom https://news.bitcoin.com/top-bitcoin-crypto-exchanges-october-2025/: expected one article metadata object, found 0
+progress {"saved": 931, "outside_period": 40, "failed": 8}
+progress {"saved": 932, "outside_period": 40, "failed": 8}
+progress {"saved": 932, "outside_period": 41, "failed": 8}
+progress {"saved": 933, "outside_period": 41, "failed": 8}
+progress {"saved": 934, "outside_period": 41, "failed": 8}
+progress {"saved": 935, "outside_period": 41, "failed": 8}
+progress {"saved": 936, "outside_period": 41, "failed": 8}
+progress {"saved": 937, "outside_period": 41, "failed": 8}
+progress {"saved": 938, "outside_period": 41, "failed": 8}
+progress {"saved": 939, "outside_period": 41, "failed": 8}
+progress {"saved": 940, "outside_period": 41, "failed": 8}
+progress {"saved": 941, "outside_period": 41, "failed": 8}
+progress {"saved": 942, "outside_period": 41, "failed": 8}
+progress {"saved": 943, "outside_period": 41, "failed": 8}
+progress {"saved": 944, "outside_period": 41, "failed": 8}
+progress {"saved": 945, "outside_period": 41, "failed": 8}
+progress {"saved": 946, "outside_period": 41, "failed": 8}
+progress {"saved": 947, "outside_period": 41, "failed": 8}
+progress {"saved": 948, "outside_period": 41, "failed": 8}
+progress {"saved": 949, "outside_period": 41, "failed": 8}
+progress {"saved": 950, "outside_period": 41, "failed": 8}
+progress {"saved": 951, "outside_period": 41, "failed": 8}
+SUMMARY {"saved": 951, "outside_period": 41, "failed": 8}
+COVERAGE publication dates in UTC
+{"articles": 1760, "days_with_articles": 357, "total_days": 365, "missing_days": 8}
+{"source": "bitcoincom", "candidates": 15502, "articles": 1011, "days": 343, "by_month": {"2025-01": 81, "2025-02": 75, "2025-03": 71, "2025-04": 84, "2025-05": 101, "2025-06": 87, "2025-07": 83, "2025-08": 87, "2025-09": 80, "2025-10": 101, "2025-11": 86, "2025-12": 75}, "failed_attempts_v2": 9}
+{"source": "coindesk", "candidates": 2574, "articles": 749, "days": 284, "by_month": {"2025-01": 63, "2025-02": 63, "2025-03": 63, "2025-04": 63, "2025-05": 63, "2025-06": 63, "2025-07": 61, "2025-08": 62, "2025-09": 61, "2025-10": 62, "2025-11": 63, "2025-12": 62}, "failed_attempts_v2": 1}
+Candidates use URL screening; counts do not establish complete publisher coverage.

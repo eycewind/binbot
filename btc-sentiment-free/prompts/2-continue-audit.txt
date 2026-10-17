@@ -1,0 +1,43 @@
+Continue from audit commit 3799353a.
+
+Goal: produce a reproducible full-dataset v3 sentiment baseline.
+Do not tune the classifier or run trading experiments yet.
+
+1. Activate and verify conda env binbot. Preserve unrelated changes.
+2. Freeze the current article population using SQLite's backup API.
+   Preserve the original database and all previous scores.
+   Record article count, source/month coverage, text hashes and a
+   deterministic input manifest. Expected count is 809; report any difference.
+3. Implement a resumable full-dataset runner using the frozen v3 prompt,
+   schema, validator, model digest and inference settings.
+   - Use local qwen3.5:9b only.
+   - Save raw responses and failures.
+   - Key completed results by run identity, URL and input text hash.
+   - Refuse resume if model, settings or inputs differ.
+   - Do not retry failed articles indefinitely.
+   - Do not mix v1/v2 results into this run.
+4. Test resume behaviour and aggregation with offline fixtures, then
+   score the frozen population once. Reuse existing v3 results only if
+   exact input/configuration identity is verified; record their provenance.
+5. Export all 365 UTC days of 2025 with:
+   - Positive, negative, neutral and mixed counts
+   - Excluded, uncertain and failed/unscored counts separately
+   - Usable article count and publisher count
+   - Sentiment = 100*(positive-negative) /
+     (positive+negative+neutral+mixed)
+   - Missing score when there are no usable articles; never fill with zero
+   - Existing documented headline deduplication behaviour
+   - Per-publisher scores/counts alongside the pooled result
+6. Preserve published, modified and collected timestamps in article-level
+   exports. Report missing/invalid timestamps and revisions.
+   Do not claim these retrospectively collected texts are point-in-time safe.
+7. Include a nominal next-day UTC availability field for later lagged joins,
+   clearly marked as a research assumption—not verified historical availability.
+8. Reconcile every input article to one final outcome and verify daily counts.
+   Report coverage, failures, label distribution, publisher imbalance and
+   days supported by only one usable article.
+9. Commit code, manifest and summary artifacts appropriately. Keep large
+   databases/raw outputs out of git unless repository policy says otherwise.
+
+No new collection, model downloads, prompt changes, trading-model training
+or profitability claims. Finish with artifact paths and reproducible commands.
